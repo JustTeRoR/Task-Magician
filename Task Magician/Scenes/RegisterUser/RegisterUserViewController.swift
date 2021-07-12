@@ -17,7 +17,6 @@ class RegisterUserViewController: UIViewController, RegisterUserDisplayLogic
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var vkRegisterButton: UIButton!
-    
   // MARK: Object lifecycle
   override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
   {

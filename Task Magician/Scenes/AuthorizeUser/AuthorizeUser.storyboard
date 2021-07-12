@@ -17,12 +17,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="L3M-tj-90J"/>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="NID-zR-Kpi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WZB-SB-X2B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-762" y="70"/>
+            <point key="canvasLocation" x="-1028" y="70"/>
         </scene>
         <!--Authorize User View Controller-->
         <scene sceneID="s0d-6b-0kx">
