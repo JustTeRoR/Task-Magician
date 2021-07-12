@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mBO-as-7f0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -8,6 +8,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="x4P-2a-hzH">
+            <objects>
+                <navigationController id="mBO-as-7f0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yUO-DS-0iT">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="L3M-tj-90J"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WZB-SB-X2B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-762" y="70"/>
+        </scene>
         <!--Authorize User View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -17,30 +33,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adz-pz-XZg">
-                                <rect key="frame" x="10" y="416" width="394" height="65"/>
+                                <rect key="frame" x="10" y="415.5" width="394" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="cB0-tS-jBb"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="registerButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3Cv-6r-qZe"/>
+                                    <segue destination="754-xq-al0" kind="show" identifier="RegisterUserSegue" id="7kK-xY-oak"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kep-Ie-SfM">
-                                <rect key="frame" x="0.0" y="198" width="414" height="90"/>
+                                <rect key="frame" x="0.0" y="242" width="414" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="XpJ-o9-TZW"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zDf-a0-slD">
-                                <rect key="frame" x="0.0" y="52" width="414" height="145"/>
+                                <rect key="frame" x="0.0" y="96" width="414" height="145"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="145" id="YGQ-Mw-lG2"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFV-fO-x0s">
-                                <rect key="frame" x="10" y="491" width="394" height="65"/>
+                                <rect key="frame" x="10" y="490.5" width="394" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="G4I-PJ-Mec"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="authorizeButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="DPO-ed-op8"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -62,6 +85,9 @@
                             <constraint firstItem="Adz-pz-XZg" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="yxm-vU-uzF"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="LeU-pf-nbH">
+                        <barButtonItem key="backBarButtonItem" title=" " id="l5Q-cT-d9T"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="authorizeButton" destination="dFV-fO-x0s" id="zqK-I6-4gi"/>
                         <outlet property="iconImage" destination="zDf-a0-slD" id="A7A-Si-VRc"/>
@@ -72,6 +98,18 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="95.652173913043484" y="69.642857142857139"/>
+        </scene>
+        <!--RegisterUserViewController-->
+        <scene sceneID="XVS-y8-04d">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RegisterUser" referencedIdentifier="RegisterUserViewController" id="754-xq-al0" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xrk-1f-qP3">
+                        <barButtonItem key="backBarButtonItem" title=" " id="xrz-NQ-Unq"/>
+                    </navigationItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DO9-Nx-tXv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="689" y="27"/>
         </scene>
     </scenes>
     <resources>

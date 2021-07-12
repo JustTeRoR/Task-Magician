@@ -1,14 +1,18 @@
 //
-//  AuthorizeUserModels.swift
+//  RegisterUserModels.swift
 //  Task Magician
 //
 
 import UIKit
 
-enum AuthorizeUser {
+enum RegisterUser
+{
   // MARK: Use cases
-  enum Something {
-    struct Request {
+  
+  enum Something
+  {
+    struct Request
+    {
     }
     struct Response
     {

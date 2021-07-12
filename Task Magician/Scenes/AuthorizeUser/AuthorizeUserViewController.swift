@@ -5,14 +5,15 @@
 
 import UIKit
 
-protocol AuthorizeUserDisplayLogic: AnyObject
-{
+protocol AuthorizeUserDisplayLogic: AnyObject {
     func displaySomething(viewModel: AuthorizeUser.Something.ViewModel)
 }
 
 class AuthorizeUserViewController: UIViewController, AuthorizeUserDisplayLogic {
     var interactor: AuthorizeUserBusinessLogic?
     var router: (NSObjectProtocol & AuthorizeUserRoutingLogic & AuthorizeUserDataPassing)?
+    var transparentView = UIView()
+    var slideUpView = UIView()
     @IBOutlet weak var textLogoImage: UIImageView!
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var registerButton: UIButton!
@@ -57,6 +58,7 @@ class AuthorizeUserViewController: UIViewController, AuthorizeUserDisplayLogic {
         self.authorizeButton.setTitle("У меня уже есть аккаунт", for: .normal)
         self.authorizeButton.setTitleColor(UIColor.white, for: .normal)
         self.authorizeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        self.slideUpView.backgroundColor = UIColor.orange
     }
   // MARK: Routing
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,6 +75,19 @@ class AuthorizeUserViewController: UIViewController, AuthorizeUserDisplayLogic {
         // doSomething()
         setupUI()
     }
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            // Make the navigation bar background clear
+            navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            navigationController?.navigationBar.shadowImage = UIImage()
+            navigationController?.navigationBar.isTranslucent = true
+        }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Restore the navigation bar to default
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        navigationController?.navigationBar.shadowImage = nil
+    }
     // MARK: Do something
     func doSomething() {
         let request = AuthorizeUser.Something.Request()
@@ -80,5 +95,34 @@ class AuthorizeUserViewController: UIViewController, AuthorizeUserDisplayLogic {
     }
     func displaySomething(viewModel: AuthorizeUser.Something.ViewModel) {
         // nameTextField.text = viewModel.name
+    }
+    @IBAction func registerButtonClicked(_ sender: Any) {
+        //self.router?.routeToRegister(segue: )
+    }
+    @IBAction func authorizeButtonClicked(_ sender: Any) {
+        // let window = UIApplication.shared.keyWindow
+        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        transparentView.frame = self.view.frame
+        // window?.addSubview(transparentView)
+        self.view.addSubview(transparentView)
+        let screenSize = UIScreen.main.bounds.size
+        self.slideUpView.frame = CGRect(x: 0, y: screenSize.height,
+                                        width: screenSize.width, height: screenSize.height/2)
+        self.view.addSubview(slideUpView)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onClickTransparentView))
+        transparentView.addGestureRecognizer(tapGesture)
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
+            self.transparentView.alpha = 0.5
+            self.slideUpView.frame = CGRect(x: 0, y: screenSize.height/2,
+            width: screenSize.width, height: screenSize.height/2)
+        }, completion: nil)
+    }
+    @objc func onClickTransparentView() {
+        let screenSize = UIScreen.main.bounds.size
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
+            self.slideUpView.frame = CGRect(x: 0, y: screenSize.height,
+                                           width: screenSize.width, height: screenSize.height/2)
+            self.transparentView.alpha = 0
+        }, completion: nil)
     }
 }

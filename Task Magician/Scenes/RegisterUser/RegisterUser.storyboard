@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Register User View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="RegisterUserViewController" id="Y6W-OH-hqX" customClass="RegisterUserViewController" customModule="Task_Magician" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pj7-MF-CeE">
+                                <rect key="frame" x="10" y="49" width="394" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSi-rC-C7y">
+                                <rect key="frame" x="25" y="433" width="364" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rrc-Xq-Ea6">
+                                <rect key="frame" x="10" y="538" width="394" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="cCO-8t-7Om"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="  Продолжить через VK" image="ic_vk_logo_nb">
+                                    <color key="titleColor" red="0.2835073769" green="0.42974680659999998" blue="0.63139683010000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="vkRegisterButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jmF-xl-kF0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fSi-rC-C7y" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="2Vu-Y0-Zsr"/>
+                            <constraint firstItem="rrc-Xq-Ea6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="HAh-Fe-JWQ"/>
+                            <constraint firstItem="pj7-MF-CeE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="OSM-Q3-xpg"/>
+                            <constraint firstItem="rrc-Xq-Ea6" firstAttribute="top" secondItem="fSi-rC-C7y" secondAttribute="bottom" constant="75" id="QBX-MU-uUb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rrc-Xq-Ea6" secondAttribute="trailing" constant="10" id="bzN-l9-piB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pj7-MF-CeE" secondAttribute="trailing" constant="10" id="gmx-XS-rCO"/>
+                            <constraint firstItem="fSi-rC-C7y" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="jni-wQ-Ivv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fSi-rC-C7y" secondAttribute="trailing" constant="25" id="kd4-bI-iWz"/>
+                            <constraint firstItem="fSi-rC-C7y" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="vYk-IP-tM4"/>
+                            <constraint firstItem="pj7-MF-CeE" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="yPS-du-GTo"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="infoLabel" destination="fSi-rC-C7y" id="YFF-g1-tah"/>
+                        <outlet property="vkRegisterButton" destination="rrc-Xq-Ea6" id="AYb-7u-L0O"/>
+                        <outlet property="welcomeLabel" destination="pj7-MF-CeE" id="ayQ-Hf-HIC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="70.982142857142847"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_vk_logo_nb" width="40" height="23"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
