@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Authorize User View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="AuthorizeUserViewController" customModule="Task_Magician" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adz-pz-XZg">
+                                <rect key="frame" x="10" y="416" width="394" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="cB0-tS-jBb"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kep-Ie-SfM">
+                                <rect key="frame" x="0.0" y="198" width="414" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="XpJ-o9-TZW"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zDf-a0-slD">
+                                <rect key="frame" x="0.0" y="52" width="414" height="145"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="145" id="YGQ-Mw-lG2"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFV-fO-x0s">
+                                <rect key="frame" x="10" y="491" width="394" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="G4I-PJ-Mec"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zDf-a0-slD" firstAttribute="centerX" secondItem="Adz-pz-XZg" secondAttribute="centerX" id="1jM-dZ-bqf"/>
+                            <constraint firstItem="zDf-a0-slD" firstAttribute="leading" secondItem="Kep-Ie-SfM" secondAttribute="leading" id="Ezf-S9-FrP"/>
+                            <constraint firstItem="dFV-fO-x0s" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="JbV-D4-UEI"/>
+                            <constraint firstItem="zDf-a0-slD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="OUm-9X-Zu8"/>
+                            <constraint firstItem="zDf-a0-slD" firstAttribute="trailing" secondItem="Kep-Ie-SfM" secondAttribute="trailing" id="QjW-7l-sbV"/>
+                            <constraint firstItem="zDf-a0-slD" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Sy6-va-UW2"/>
+                            <constraint firstItem="Kep-Ie-SfM" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="cL7-U9-W6G"/>
+                            <constraint firstItem="dFV-fO-x0s" firstAttribute="top" secondItem="Adz-pz-XZg" secondAttribute="bottom" constant="10" id="dcV-Kl-nSi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dFV-fO-x0s" secondAttribute="trailing" constant="10" id="eJD-sT-GMG"/>
+                            <constraint firstItem="zDf-a0-slD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="h7l-zY-Kdx"/>
+                            <constraint firstItem="dFV-fO-x0s" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="pBQ-3k-1bt"/>
+                            <constraint firstItem="Adz-pz-XZg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="pRw-Yf-93x"/>
+                            <constraint firstItem="Kep-Ie-SfM" firstAttribute="top" secondItem="zDf-a0-slD" secondAttribute="bottom" constant="1" id="qAJ-c0-DX3"/>
+                            <constraint firstItem="Adz-pz-XZg" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="yxm-vU-uzF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="authorizeButton" destination="dFV-fO-x0s" id="zqK-I6-4gi"/>
+                        <outlet property="iconImage" destination="zDf-a0-slD" id="A7A-Si-VRc"/>
+                        <outlet property="registerButton" destination="Adz-pz-XZg" id="mvl-WZ-8qt"/>
+                        <outlet property="textLogoImage" destination="Kep-Ie-SfM" id="AqW-1R-tlA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="95.652173913043484" y="69.642857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
