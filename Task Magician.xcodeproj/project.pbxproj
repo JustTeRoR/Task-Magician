@@ -26,7 +26,6 @@
 		80D8EA6F269C6036003BAA18 /* AuthorizeUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA69269C6036003BAA18 /* AuthorizeUserViewController.swift */; };
 		80D8EA70269C6036003BAA18 /* AuthorizeUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA6A269C6036003BAA18 /* AuthorizeUserInteractor.swift */; };
 		80D8EA72269C60B4003BAA18 /* AuthorizeUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80D8EA71269C60B4003BAA18 /* AuthorizeUser.storyboard */; };
-		80D8EA74269CA1BC003BAA18 /* AuthorizeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D8EA73269CA1BC003BAA18 /* AuthorizeView.xib */; };
 		80D8EA7D269CA854003BAA18 /* RegisterUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA77269CA854003BAA18 /* RegisterUserPresenter.swift */; };
 		80D8EA7E269CA854003BAA18 /* RegisterUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA78269CA854003BAA18 /* RegisterUserWorker.swift */; };
 		80D8EA7F269CA854003BAA18 /* RegisterUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA79269CA854003BAA18 /* RegisterUserRouter.swift */; };
@@ -49,6 +48,11 @@
 		80D8EAA4269CEBF2003BAA18 /* ViewTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA9E269CEBF2003BAA18 /* ViewTasksViewController.swift */; };
 		80D8EAA5269CEBF2003BAA18 /* ViewTasksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA9F269CEBF2003BAA18 /* ViewTasksInteractor.swift */; };
 		80D8EAA7269CEFD8003BAA18 /* String+subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EAA6269CEFD8003BAA18 /* String+subscript.swift */; };
+		80D8EAA926A0630E003BAA18 /* AuthorizePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EAA826A0630E003BAA18 /* AuthorizePresentationController.swift */; };
+		80D8EAAB26A06449003BAA18 /* AuthorizeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D8EAAA26A06449003BAA18 /* AuthorizeView.xib */; };
+		80D8EAAD26A06558003BAA18 /* UIVIewController+createVkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EAAC26A06558003BAA18 /* UIVIewController+createVkButton.swift */; };
+		80D8EAB026A06768003BAA18 /* UIViewController+createCommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EAAF26A06768003BAA18 /* UIViewController+createCommonButton.swift */; };
+		80D8EAB226A070DB003BAA18 /* AuthorizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EAB126A070DB003BAA18 /* AuthorizeView.swift */; };
 		FD6B6D56F55B4D412B335455 /* Pods_Task_Magician.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35342C6F0B04FC3DE7DFA85B /* Pods_Task_Magician.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +80,6 @@
 		80D8EA69269C6036003BAA18 /* AuthorizeUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeUserViewController.swift; sourceTree = "<group>"; };
 		80D8EA6A269C6036003BAA18 /* AuthorizeUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeUserInteractor.swift; sourceTree = "<group>"; };
 		80D8EA71269C60B4003BAA18 /* AuthorizeUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthorizeUser.storyboard; sourceTree = "<group>"; };
-		80D8EA73269CA1BC003BAA18 /* AuthorizeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthorizeView.xib; sourceTree = "<group>"; };
 		80D8EA77269CA854003BAA18 /* RegisterUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserPresenter.swift; sourceTree = "<group>"; };
 		80D8EA78269CA854003BAA18 /* RegisterUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserWorker.swift; sourceTree = "<group>"; };
 		80D8EA79269CA854003BAA18 /* RegisterUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRouter.swift; sourceTree = "<group>"; };
@@ -99,6 +102,11 @@
 		80D8EA9E269CEBF2003BAA18 /* ViewTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTasksViewController.swift; sourceTree = "<group>"; };
 		80D8EA9F269CEBF2003BAA18 /* ViewTasksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTasksInteractor.swift; sourceTree = "<group>"; };
 		80D8EAA6269CEFD8003BAA18 /* String+subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+subscript.swift"; sourceTree = "<group>"; };
+		80D8EAA826A0630E003BAA18 /* AuthorizePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizePresentationController.swift; sourceTree = "<group>"; };
+		80D8EAAA26A06449003BAA18 /* AuthorizeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthorizeView.xib; sourceTree = "<group>"; };
+		80D8EAAC26A06558003BAA18 /* UIVIewController+createVkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+createVkButton.swift"; sourceTree = "<group>"; };
+		80D8EAAF26A06768003BAA18 /* UIViewController+createCommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+createCommonButton.swift"; sourceTree = "<group>"; };
+		80D8EAB126A070DB003BAA18 /* AuthorizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthorizeView.swift; path = ../../../../../AuthorizeView.swift; sourceTree = "<group>"; };
 		F0EF73A27E966FF958D8F56F /* Pods-Task Magician.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task Magician.debug.xcconfig"; path = "Target Support Files/Pods-Task Magician/Pods-Task Magician.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,7 +212,9 @@
 				80D8EA69269C6036003BAA18 /* AuthorizeUserViewController.swift */,
 				80D8EA6A269C6036003BAA18 /* AuthorizeUserInteractor.swift */,
 				80D8EA71269C60B4003BAA18 /* AuthorizeUser.storyboard */,
-				80D8EA73269CA1BC003BAA18 /* AuthorizeView.xib */,
+				80D8EAA826A0630E003BAA18 /* AuthorizePresentationController.swift */,
+				80D8EAAA26A06449003BAA18 /* AuthorizeView.xib */,
+				80D8EAB126A070DB003BAA18 /* AuthorizeView.swift */,
 			);
 			path = AuthorizeUser;
 			sourceTree = "<group>";
@@ -258,6 +268,8 @@
 			children = (
 				80D8EA96269CEB0E003BAA18 /* UIViewController+loadFromStoryboard.swift */,
 				80D8EAA6269CEFD8003BAA18 /* String+subscript.swift */,
+				80D8EAAC26A06558003BAA18 /* UIVIewController+createVkButton.swift */,
+				80D8EAAF26A06768003BAA18 /* UIViewController+createCommonButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -332,8 +344,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				80D8EA87269CDBAA003BAA18 /* ViewTasks.storyboard in Resources */,
-				80D8EA74269CA1BC003BAA18 /* AuthorizeView.xib in Resources */,
 				80D8EA72269C60B4003BAA18 /* AuthorizeUser.storyboard in Resources */,
+				80D8EAAB26A06449003BAA18 /* AuthorizeView.xib in Resources */,
 				80D8EA84269CA88F003BAA18 /* RegisterUser.storyboard in Resources */,
 				805EB69E2699EB1E001CB66E /* Assets.xcassets in Resources */,
 				805EB69C2699EB1D001CB66E /* Main.storyboard in Resources */,
@@ -414,8 +426,10 @@
 				80D8EA6E269C6036003BAA18 /* AuthorizeUserModels.swift in Sources */,
 				80D8EAA7269CEFD8003BAA18 /* String+subscript.swift in Sources */,
 				80D8EA7D269CA854003BAA18 /* RegisterUserPresenter.swift in Sources */,
+				80D8EAA926A0630E003BAA18 /* AuthorizePresentationController.swift in Sources */,
 				80D8EAA0269CEBF2003BAA18 /* ViewTasksPresenter.swift in Sources */,
 				80D8EA5A269C47DC003BAA18 /* CreateTaskWorker.swift in Sources */,
+				80D8EAB026A06768003BAA18 /* UIViewController+createCommonButton.swift in Sources */,
 				80D8EA8E269CDDFE003BAA18 /* AuthService.swift in Sources */,
 				805EB6992699EB1D001CB66E /* ViewController.swift in Sources */,
 				805EB6952699EB1D001CB66E /* AppDelegate.swift in Sources */,
@@ -424,6 +438,7 @@
 				80D8EAA1269CEBF2003BAA18 /* ViewTasksWorker.swift in Sources */,
 				80D8EA81269CA854003BAA18 /* RegisterUserViewController.swift in Sources */,
 				80D8EA8C269CDD88003BAA18 /* UserResponse.swift in Sources */,
+				80D8EAB226A070DB003BAA18 /* AuthorizeView.swift in Sources */,
 				805EB6972699EB1D001CB66E /* SceneDelegate.swift in Sources */,
 				80D8EA94269CE070003BAA18 /* MainService.swift in Sources */,
 				80D8EAA2269CEBF2003BAA18 /* ViewTasksRouter.swift in Sources */,
@@ -436,6 +451,7 @@
 				80D8EA6C269C6036003BAA18 /* AuthorizeUserWorker.swift in Sources */,
 				80D8EA82269CA854003BAA18 /* RegisterUserInteractor.swift in Sources */,
 				80D8EA6B269C6036003BAA18 /* AuthorizeUserPresenter.swift in Sources */,
+				80D8EAAD26A06558003BAA18 /* UIVIewController+createVkButton.swift in Sources */,
 				80D8EA6F269C6036003BAA18 /* AuthorizeUserViewController.swift in Sources */,
 				80D8EA70269C6036003BAA18 /* AuthorizeUserInteractor.swift in Sources */,
 				80D8EA64269C4D84003BAA18 /* User.swift in Sources */,

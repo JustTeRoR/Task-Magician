@@ -46,11 +46,8 @@ class RegisterUserViewController: UIViewController, RegisterUserDisplayLogic
         self.infoLabel.text = "Для создания аккаунта в Task Magician \n Вам необходимо войти через социальную сеть VK (ВКонтакте). \n Это займет не более полуминуты."
         self.infoLabel.textColor = UIColor.white
         self.view.backgroundColor = UIColor.orange
-        self.vkRegisterButton.layer.cornerRadius = 10
-        self.vkRegisterButton.layer.backgroundColor = UIColor.white.cgColor
-        self.vkRegisterButton.titleLabel?.text = "Продолжить через VK"
-        self.vkRegisterButton.setImage(UIImage(named: "ic_vk_logo_nb"), for: .normal)
-        self.vkRegisterButton.imageEdgeInsets.left = -50
+        createVKButton(button: vkRegisterButton)
+        
     }
   // MARK: Routing
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

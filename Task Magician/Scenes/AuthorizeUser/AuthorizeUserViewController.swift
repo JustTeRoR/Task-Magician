@@ -12,8 +12,6 @@ protocol AuthorizeUserDisplayLogic: AnyObject {
 class AuthorizeUserViewController: UIViewController, AuthorizeUserDisplayLogic {
     var interactor: AuthorizeUserBusinessLogic?
     var router: (NSObjectProtocol & AuthorizeUserRoutingLogic & AuthorizeUserDataPassing)?
-    var transparentView = UIView()
-    var slideUpView = UIView()
     @IBOutlet weak var textLogoImage: UIImageView!
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var registerButton: UIButton!
@@ -45,20 +43,8 @@ class AuthorizeUserViewController: UIViewController, AuthorizeUserDisplayLogic {
         self.iconImage.image = UIImage(systemName: "list.star")
         self.iconImage.tintColor = UIColor.white
         self.textLogoImage.image = UIImage(named: "LaunchScreen-logo")
-        self.registerButton.layer.borderWidth = 2
-        self.registerButton.layer.cornerRadius = 10
-        self.registerButton.layer.borderColor = UIColor.white.cgColor
-        self.registerButton.backgroundColor = UIColor.white
-        self.registerButton.setTitleColor(UIColor.black, for: .normal)
-        self.registerButton.setTitle("Я новый пользователь", for: .normal)
-        self.registerButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        self.authorizeButton.layer.borderWidth = 2
-        self.authorizeButton.layer.cornerRadius = 10
-        self.authorizeButton.layer.borderColor = UIColor.white.cgColor
-        self.authorizeButton.setTitle("У меня уже есть аккаунт", for: .normal)
-        self.authorizeButton.setTitleColor(UIColor.white, for: .normal)
-        self.authorizeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
-        self.slideUpView.backgroundColor = UIColor.orange
+        createCommonButton(button: registerButton, titleColor: UIColor.black, backgroundColor: UIColor.white, title: "Я новый пользователь")
+        createCommonButton(button: authorizeButton, titleColor: UIColor.white, backgroundColor: UIColor.orange, title: "У меня уже есть аккаунт")
     }
   // MARK: Routing
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -100,29 +86,19 @@ class AuthorizeUserViewController: UIViewController, AuthorizeUserDisplayLogic {
         //self.router?.routeToRegister(segue: )
     }
     @IBAction func authorizeButtonClicked(_ sender: Any) {
-        // let window = UIApplication.shared.keyWindow
-        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        transparentView.frame = self.view.frame
-        // window?.addSubview(transparentView)
-        self.view.addSubview(transparentView)
-        let screenSize = UIScreen.main.bounds.size
-        self.slideUpView.frame = CGRect(x: 0, y: screenSize.height,
-                                        width: screenSize.width, height: screenSize.height/2)
-        self.view.addSubview(slideUpView)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onClickTransparentView))
-        transparentView.addGestureRecognizer(tapGesture)
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
-            self.transparentView.alpha = 0.5
-            self.slideUpView.frame = CGRect(x: 0, y: screenSize.height/2,
-            width: screenSize.width, height: screenSize.height/2)
-        }, completion: nil)
+       showMiracle()
     }
-    @objc func onClickTransparentView() {
-        let screenSize = UIScreen.main.bounds.size
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
-            self.slideUpView.frame = CGRect(x: 0, y: screenSize.height,
-                                           width: screenSize.width, height: screenSize.height/2)
-            self.transparentView.alpha = 0
-        }, completion: nil)
+    
+    @objc func showMiracle() {
+        let slideVC = AuthorizeView()
+        slideVC.modalPresentationStyle = .custom
+        slideVC.transitioningDelegate = self
+        self.present(slideVC, animated: true, completion: nil)
+    }
+}
+
+extension AuthorizeUserViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        AuthorizePresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
