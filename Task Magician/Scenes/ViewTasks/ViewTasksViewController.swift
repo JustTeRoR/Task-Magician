@@ -11,35 +11,33 @@
 //
 
 import UIKit
+import VK_ios_sdk
 
-protocol ViewTasksDisplayLogic: class
+protocol ViewTasksDisplayLogic: AnyObject
 {
-  func displaySomething(viewModel: ViewTasks.Something.ViewModel)
+    func displayUserData(viewModel: ViewTasks.GetUserInfo.ViewModel.ViewModelData)
+    func displaySomething(viewModel: ViewTasks.Something.ViewModel)
 }
 
-class ViewTasksViewController: UIViewController, ViewTasksDisplayLogic
-{
-  var interactor: ViewTasksBusinessLogic?
-  var router: (NSObjectProtocol & ViewTasksRoutingLogic & ViewTasksDataPassing)?
-
+class ViewTasksViewController: UIViewController, TitleViewDelegate, ViewTasksDisplayLogic {
+    
+    var interactor: ViewTasksBusinessLogic?
+    var router: (NSObjectProtocol & ViewTasksRoutingLogic & ViewTasksDataPassing)?
+    private lazy var titleView = TitleView()
   // MARK: Object lifecycle
   
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
+  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     setup()
   }
   
-  required init?(coder aDecoder: NSCoder)
-  {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     setup()
   }
-  
+
   // MARK: Setup
-  
-  private func setup()
-  {
+  private func setup() {
     let viewController = self
     let interactor = ViewTasksInteractor()
     let presenter = ViewTasksPresenter()
@@ -53,9 +51,7 @@ class ViewTasksViewController: UIViewController, ViewTasksDisplayLogic
   }
   
   // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let scene = segue.identifier {
       let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
       if let router = router, router.responds(to: selector) {
@@ -65,25 +61,75 @@ class ViewTasksViewController: UIViewController, ViewTasksDisplayLogic
   }
   
   // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
+  override func viewDidLoad() {
     super.viewDidLoad()
-    doSomething()
+    //doSomething()
+    setupTopBars()
+    interactor?.makeRequest(request: ViewTasks.GetUserInfo.Request.RequestType.getUser)
   }
   
   // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
+  func doSomething() {
     let request = ViewTasks.Something.Request()
     interactor?.doSomething(request: request)
   }
   
-  func displaySomething(viewModel: ViewTasks.Something.ViewModel)
-  {
+  func displaySomething(viewModel: ViewTasks.Something.ViewModel) {
     //nameTextField.text = viewModel.name
   }
+    
+    private func setupTopBars() {
+        let topBar = UIView(frame: UIApplication.shared.statusBarFrame)
+        topBar.backgroundColor = .blue
+        topBar.layer.shadowColor = UIColor.black.cgColor
+        topBar.layer.shadowOpacity = 0.3
+        topBar.layer.shadowOffset = CGSize.zero
+        topBar.layer.shadowRadius = 8
+        self.view.addSubview(topBar)
+
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationItem.titleView = titleView
+
+        titleView.delegate = self
+    }
+    
+    // MARK: Log out session delegate
+    func buttonLogOutSession(sender: UIButton) {
+        // swiftlint:disable force_cast
+        let authViewController:AuthorizeUserViewController = UIStoryboard(name: "AuthorizeUser", bundle: nil)
+            .instantiateViewController(withIdentifier: "AuthorizeUserViewController") as! AuthorizeUserViewController
+        // swiftlint:enable force_cast
+        /*
+        guard let authViewController: AuthorizeUserViewController = loginStoryboard.instantiateViewController(withIdentifier: "AuthorizeUserViewController") as? AuthorizeUserViewController else {
+            print("Couldn't find the view controller")
+            return
+        }*/
+
+        let alert = UIAlertController(title: "Выйти?",
+                                      message: "Вы всегда можете получить доступ к своему аккаунту, войдя в систему",
+                                      preferredStyle: UIAlertController.Style.alert)
+
+        alert.addAction(UIAlertAction(title: "Отмена", style: UIAlertAction.Style.default, handler: { _ in
+            print("\(#function)")
+        }))
+
+        alert.addAction(UIAlertAction(title: "Выйти",
+                                      style: UIAlertAction.Style.destructive,
+                                      handler: {(_: UIAlertAction!) in
+                                        print("\(#function)")
+                                        //LogOut and segue at authViewController
+                                        VKSdk.forceLogout()
+                                        self.navigationController?.pushViewController(authViewController,
+                                                                                      animated: true)
+        }))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func displayUserData(viewModel: ViewTasks.GetUserInfo.ViewModel.ViewModelData) {
+        switch viewModel {
+            case .displayUser(let userViewModel):
+                titleView.set(userViewModel: userViewModel)
+        }
+    }
 }

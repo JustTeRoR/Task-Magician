@@ -7,6 +7,10 @@ import UIKit
 
 class AuthorizeUserWorker
 {
-  func doSomeWork() {
-  }
+    func doSomeWork() {
+    }
+    
+    func authorizePersonThroughVK(authService: AuthService) {
+        authService.wakeUpSession()
+    }
 }

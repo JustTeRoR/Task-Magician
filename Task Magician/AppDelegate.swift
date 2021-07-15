@@ -19,18 +19,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthServiceDelegate {
     }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
-  /*      self.authService = AuthService()
+        // Applications are expected to have a root view controller at the end of application launch
+        // Application if user logged in enters wake up session afterm that's why exception about no windows
+        // Decided for now just giving app delegate empty window until it gets the correct one.
+        // bad bad bad, to think about next 3 lines, how to get rid of them and not recieve an error again.
+        let authVC: ViewTasksViewController = ViewTasksViewController.loadFromStoryboard()
+        let navVC = UINavigationController(rootViewController: authVC)
+        window?.rootViewController = navVC
+        
+        
+        self.authService = AuthService()
         authService.delegate = self
         let scope = ["wall", "friends"]
         VKSdk.wakeUpSession(scope) { (state, _) in
-        if state == VKAuthorizationState.authorized {
+            print(state.rawValue)
+            if state == VKAuthorizationState.authorized {
             self.authServiceSignIn()
         } else {
             self.authVC()
             }
-        }*/
-        return true
     }
+    return true
+}
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         VKSdk.processOpen(url, fromApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
         print("url: \(url)")

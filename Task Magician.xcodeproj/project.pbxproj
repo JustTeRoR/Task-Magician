@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		805EB6952699EB1D001CB66E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805EB6942699EB1D001CB66E /* AppDelegate.swift */; };
-		805EB6972699EB1D001CB66E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805EB6962699EB1D001CB66E /* SceneDelegate.swift */; };
-		805EB6992699EB1D001CB66E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805EB6982699EB1D001CB66E /* ViewController.swift */; };
-		805EB69C2699EB1D001CB66E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805EB69A2699EB1D001CB66E /* Main.storyboard */; };
 		805EB69E2699EB1E001CB66E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 805EB69D2699EB1E001CB66E /* Assets.xcassets */; };
 		80D8EA59269C47DC003BAA18 /* CreateTaskPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA53269C47DC003BAA18 /* CreateTaskPresenter.swift */; };
 		80D8EA5A269C47DC003BAA18 /* CreateTaskWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA54269C47DC003BAA18 /* CreateTaskWorker.swift */; };
@@ -53,6 +50,9 @@
 		80D8EAAD26A06558003BAA18 /* UIVIewController+createVkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EAAC26A06558003BAA18 /* UIVIewController+createVkButton.swift */; };
 		80D8EAB026A06768003BAA18 /* UIViewController+createCommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EAAF26A06768003BAA18 /* UIViewController+createCommonButton.swift */; };
 		80D8EAB226A070DB003BAA18 /* AuthorizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EAB126A070DB003BAA18 /* AuthorizeView.swift */; };
+		80D8EAB526A07F47003BAA18 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EAB426A07F47003BAA18 /* TitleView.swift */; };
+		80D8EAB726A07FBB003BAA18 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EAB626A07FBB003BAA18 /* WebImageView.swift */; };
+		80D8EABB26A08068003BAA18 /* UiView+constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EABA26A08068003BAA18 /* UiView+constraints.swift */; };
 		FD6B6D56F55B4D412B335455 /* Pods_Task_Magician.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35342C6F0B04FC3DE7DFA85B /* Pods_Task_Magician.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,9 +61,6 @@
 		56355EE69E4FD2945F5D4BC4 /* Pods-Task Magician.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task Magician.release.xcconfig"; path = "Target Support Files/Pods-Task Magician/Pods-Task Magician.release.xcconfig"; sourceTree = "<group>"; };
 		805EB6912699EB1D001CB66E /* Task Magician.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Magician.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		805EB6942699EB1D001CB66E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		805EB6962699EB1D001CB66E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		805EB6982699EB1D001CB66E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		805EB69B2699EB1D001CB66E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		805EB69D2699EB1E001CB66E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		805EB6A22699EB1E001CB66E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80D8EA53269C47DC003BAA18 /* CreateTaskPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskPresenter.swift; sourceTree = "<group>"; };
@@ -107,6 +104,9 @@
 		80D8EAAC26A06558003BAA18 /* UIVIewController+createVkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIewController+createVkButton.swift"; sourceTree = "<group>"; };
 		80D8EAAF26A06768003BAA18 /* UIViewController+createCommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+createCommonButton.swift"; sourceTree = "<group>"; };
 		80D8EAB126A070DB003BAA18 /* AuthorizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthorizeView.swift; path = ../../../../../AuthorizeView.swift; sourceTree = "<group>"; };
+		80D8EAB426A07F47003BAA18 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		80D8EAB626A07FBB003BAA18 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
+		80D8EABA26A08068003BAA18 /* UiView+constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+constraints.swift"; sourceTree = "<group>"; };
 		F0EF73A27E966FF958D8F56F /* Pods-Task Magician.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task Magician.debug.xcconfig"; path = "Target Support Files/Pods-Task Magician/Pods-Task Magician.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,9 +155,6 @@
 				80D8EA61269C4D6F003BAA18 /* Common */,
 				80D8EA51269B01DB003BAA18 /* Scenes */,
 				805EB6942699EB1D001CB66E /* AppDelegate.swift */,
-				805EB6962699EB1D001CB66E /* SceneDelegate.swift */,
-				805EB6982699EB1D001CB66E /* ViewController.swift */,
-				805EB69A2699EB1D001CB66E /* Main.storyboard */,
 				805EB69D2699EB1E001CB66E /* Assets.xcassets */,
 				805EB6A22699EB1E001CB66E /* Info.plist */,
 			);
@@ -222,6 +219,7 @@
 		80D8EA61269C4D6F003BAA18 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				80D8EAB326A07F38003BAA18 /* SharedViews */,
 				80D8EA88269CDCAC003BAA18 /* Services */,
 				80D8EA62269C4D76003BAA18 /* User */,
 			);
@@ -270,8 +268,18 @@
 				80D8EAA6269CEFD8003BAA18 /* String+subscript.swift */,
 				80D8EAAC26A06558003BAA18 /* UIVIewController+createVkButton.swift */,
 				80D8EAAF26A06768003BAA18 /* UIViewController+createCommonButton.swift */,
+				80D8EABA26A08068003BAA18 /* UiView+constraints.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		80D8EAB326A07F38003BAA18 /* SharedViews */ = {
+			isa = PBXGroup;
+			children = (
+				80D8EAB426A07F47003BAA18 /* TitleView.swift */,
+				80D8EAB626A07FBB003BAA18 /* WebImageView.swift */,
+			);
+			path = SharedViews;
 			sourceTree = "<group>";
 		};
 		B56AF1379D7FEB9047E45A2B /* Pods */ = {
@@ -348,7 +356,6 @@
 				80D8EAAB26A06449003BAA18 /* AuthorizeView.xib in Resources */,
 				80D8EA84269CA88F003BAA18 /* RegisterUser.storyboard in Resources */,
 				805EB69E2699EB1E001CB66E /* Assets.xcassets in Resources */,
-				805EB69C2699EB1D001CB66E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +438,6 @@
 				80D8EA5A269C47DC003BAA18 /* CreateTaskWorker.swift in Sources */,
 				80D8EAB026A06768003BAA18 /* UIViewController+createCommonButton.swift in Sources */,
 				80D8EA8E269CDDFE003BAA18 /* AuthService.swift in Sources */,
-				805EB6992699EB1D001CB66E /* ViewController.swift in Sources */,
 				805EB6952699EB1D001CB66E /* AppDelegate.swift in Sources */,
 				80D8EA97269CEB0E003BAA18 /* UIViewController+loadFromStoryboard.swift in Sources */,
 				80D8EA5B269C47DC003BAA18 /* CreateTaskRouter.swift in Sources */,
@@ -439,8 +445,9 @@
 				80D8EA81269CA854003BAA18 /* RegisterUserViewController.swift in Sources */,
 				80D8EA8C269CDD88003BAA18 /* UserResponse.swift in Sources */,
 				80D8EAB226A070DB003BAA18 /* AuthorizeView.swift in Sources */,
-				805EB6972699EB1D001CB66E /* SceneDelegate.swift in Sources */,
 				80D8EA94269CE070003BAA18 /* MainService.swift in Sources */,
+				80D8EABB26A08068003BAA18 /* UiView+constraints.swift in Sources */,
+				80D8EAB726A07FBB003BAA18 /* WebImageView.swift in Sources */,
 				80D8EAA2269CEBF2003BAA18 /* ViewTasksRouter.swift in Sources */,
 				80D8EA5C269C47DC003BAA18 /* CreateTaskModels.swift in Sources */,
 				80D8EA92269CDF1F003BAA18 /* NetworkDataFetcher.swift in Sources */,
@@ -458,21 +465,11 @@
 				80D8EA90269CDEC0003BAA18 /* NetworkService.swift in Sources */,
 				80D8EA5D269C47DC003BAA18 /* CreateTaskViewController.swift in Sources */,
 				80D8EAA3269CEBF2003BAA18 /* ViewTasksModels.swift in Sources */,
+				80D8EAB526A07F47003BAA18 /* TitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		805EB69A2699EB1D001CB66E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				805EB69B2699EB1D001CB66E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		805EB6A32699EB1E001CB66E /* Debug */ = {

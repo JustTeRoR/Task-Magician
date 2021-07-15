@@ -83,8 +83,7 @@ class RegisterUserViewController: UIViewController, RegisterUserDisplayLogic
     let request = RegisterUser.Something.Request()
     interactor?.doSomething(request: request)
   }
-  func displaySomething(viewModel: RegisterUser.Something.ViewModel)
-  {
+  func displaySomething(viewModel: RegisterUser.Something.ViewModel)  {
     //nameTextField.text = viewModel.name
   }
     @IBAction func vkRegisterButtonClicked(_ sender: Any) {

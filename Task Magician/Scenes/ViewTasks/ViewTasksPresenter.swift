@@ -14,18 +14,32 @@ import UIKit
 
 protocol ViewTasksPresentationLogic
 {
-  func presentSomething(response: ViewTasks.Something.Response)
+    func presentUserInfo(response: ViewTasks.GetUserInfo.Response.ResponseType)
+    func presentSomething(response: ViewTasks.Something.Response)
 }
 
-class ViewTasksPresenter: ViewTasksPresentationLogic
-{
-  weak var viewController: ViewTasksDisplayLogic?
+class ViewTasksPresenter: ViewTasksPresentationLogic {
+    typealias ViewModelAlias = ViewTasks.GetUserInfo.ViewModel.ViewModelData
+    weak var viewController: ViewTasksDisplayLogic?
   
-  // MARK: Do something
+    let dateFormatter: DateFormatter = {
+        let dateFormater = DateFormatter()
+        dateFormater.locale = Locale(identifier: "ru_RU")
+        dateFormater.dateFormat = "d MMM 'в' HH:mm"
+        return dateFormater
+    }()
   
-  func presentSomething(response: ViewTasks.Something.Response)
-  {
-    let viewModel = ViewTasks.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    func presentUserInfo(response: ViewTasks.GetUserInfo.Response.ResponseType) {
+        switch response {
+        case .presentUserInfo(let user):
+            let userViewModel = UserViewModel.init(photoUrlString: user?.photo100, name: user!.name)
+            viewController?.displayUserData(viewModel: ViewModelAlias.displayUser(userViewModel: userViewModel))
+        }
+
+    }
+    
+    func presentSomething(response: ViewTasks.Something.Response) {
+        let viewModel = ViewTasks.Something.ViewModel()
+        viewController?.displaySomething(viewModel: viewModel)
+    }
 }

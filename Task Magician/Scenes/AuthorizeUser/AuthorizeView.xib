@@ -28,6 +28,9 @@
                         <constraint firstAttribute="height" constant="60" id="7Wj-Bk-kpf"/>
                     </constraints>
                     <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="loginButtonClicked:" destination="-1" eventType="touchUpInside" id="NuM-QV-fj5"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fht-Mj-j5c">
                     <rect key="frame" x="177" y="16" width="60" height="4"/>

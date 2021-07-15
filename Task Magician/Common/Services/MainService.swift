@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class MainService {
     var authService: AuthService
     var networking: Networking

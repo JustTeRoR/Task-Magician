@@ -7,14 +7,14 @@ import UIKit
 
 enum AuthorizeUser {
   // MARK: Use cases
-  enum Something {
-    struct Request {
+    enum Something {
+        struct Request { }
+        struct Response { }
+        struct ViewModel { }
     }
-    struct Response
-    {
+    enum LoginUser {
+      struct Request { }
+      struct Response { }
+      struct ViewModel { }
     }
-    struct ViewModel
-    {
-    }
-  }
 }

@@ -18,14 +18,31 @@ enum ViewTasks
   
   enum Something
   {
-    struct Request
-    {
-    }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
+    struct Request { }
+    struct Response { }
+    struct ViewModel { }
   }
+    enum GetUserInfo
+    {
+        struct Request {
+            enum RequestType {
+                case getUser
+            }
+        }
+        struct Response {
+            enum ResponseType {
+                case presentUserInfo(user: UserResponse?)
+            }
+        }
+        struct ViewModel {
+            enum ViewModelData {
+                case displayUser(userViewModel: UserViewModel)
+            }
+        }
+    }
+}
+
+struct UserViewModel: TitleViewViewModel {
+    var photoUrlString: String?
+    var name: String
 }

@@ -25,6 +25,7 @@ class AuthorizeUserViewController: UIViewController, AuthorizeUserDisplayLogic {
         super.init(coder: aDecoder)
         setup()
     }
+    
     // MARK: Setup
     private func setup() {
         let viewController = self
@@ -83,7 +84,7 @@ class AuthorizeUserViewController: UIViewController, AuthorizeUserDisplayLogic {
         // nameTextField.text = viewModel.name
     }
     @IBAction func registerButtonClicked(_ sender: Any) {
-        //self.router?.routeToRegister(segue: )
+        
     }
     @IBAction func authorizeButtonClicked(_ sender: Any) {
        showMiracle()

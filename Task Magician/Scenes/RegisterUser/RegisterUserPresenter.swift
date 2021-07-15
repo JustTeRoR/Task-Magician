@@ -16,8 +16,7 @@ class RegisterUserPresenter: RegisterUserPresentationLogic
   
   // MARK: Do something
   
-  func presentSomething(response: RegisterUser.Something.Response)
-  {
+  func presentSomething(response: RegisterUser.Something.Response) {
     let viewModel = RegisterUser.Something.ViewModel()
     viewController?.displaySomething(viewModel: viewModel)
   }
