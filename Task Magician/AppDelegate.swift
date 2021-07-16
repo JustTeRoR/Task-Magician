@@ -7,6 +7,9 @@
 
 import UIKit
 import VK_ios_sdk
+import RealmSwift
+
+let app = App(id: "task_magician-lmcdc")
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, AuthServiceDelegate {

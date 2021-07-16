@@ -17,29 +17,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ScZ-WY-5tZ">
-                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                                <rect key="frame" x="0.0" y="109" width="414" height="753"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGP-0n-Y0h">
-                                <rect key="frame" x="358" y="64" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCK-3H-6gp">
+                                <rect key="frame" x="0.0" y="65" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="To Do List" id="o4W-5f-fiw">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6D1-h4-rLM">
+                                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="100" maxX="0.0" maxY="-10"/>
+                                            <connections>
+                                                <action selector="addNewTask:" destination="Y6W-OH-hqX" id="VjU-zA-Rd0"/>
+                                                <segue destination="j1a-Pw-KhX" kind="show" id="L8X-LF-RCX"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ScZ-WY-5tZ" firstAttribute="top" secondItem="JGP-0n-Y0h" secondAttribute="bottom" constant="10" id="1KH-6F-BWu"/>
                             <constraint firstItem="ScZ-WY-5tZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2Up-l7-M1X"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ScZ-WY-5tZ" secondAttribute="bottom" id="37O-Y0-DY6"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="JGP-0n-Y0h" secondAttribute="trailing" constant="10" id="Cx9-Nn-qLR"/>
-                            <constraint firstItem="JGP-0n-Y0h" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Lf6-E2-5qJ"/>
+                            <constraint firstItem="oCK-3H-6gp" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="6VA-MW-Rwf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ScZ-WY-5tZ" secondAttribute="trailing" id="MxZ-8P-QcI"/>
+                            <constraint firstItem="oCK-3H-6gp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Pxc-ON-AF9"/>
+                            <constraint firstItem="oCK-3H-6gp" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="65" id="hq7-kO-BBU"/>
+                            <constraint firstItem="ScZ-WY-5tZ" firstAttribute="top" secondItem="oCK-3H-6gp" secondAttribute="bottom" id="kJT-FW-Mbz"/>
+                            <constraint firstItem="oCK-3H-6gp" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="qH0-5P-3T9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tasksTable" destination="ScZ-WY-5tZ" id="r6X-GW-5r2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="15.942028985507248" y="-15.401785714285714"/>
+        </scene>
+        <!--CreateTask-->
+        <scene sceneID="KoB-Iq-v2J">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CreateTaskViewController" storyboardName="CreateTask" id="j1a-Pw-KhX" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="d4M-fl-g1e"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aw5-4r-ekH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="667" y="-15"/>
         </scene>
     </scenes>
     <resources>

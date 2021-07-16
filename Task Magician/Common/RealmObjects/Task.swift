@@ -1,0 +1,43 @@
+//
+//  Task.swift
+//  Task Magician
+//
+//  Created by Сергей Павленок on 16.07.2021.
+//
+
+import Foundation
+import RealmSwift
+
+// swiftlint:disable identifier_name
+enum TaskStatus: String {
+    case Open
+    case InProgress
+    case Complete
+}
+
+class Task: Object {
+    @Persisted(primaryKey: true) var _id: ObjectId
+    @Persisted var name: String = ""
+    @Persisted var owner: String?
+    @Persisted var status: String = ""
+
+    var statusEnum: TaskStatus {
+        get {
+            return TaskStatus(rawValue: status) ?? .Open
+        }
+        set {
+            status = newValue.rawValue
+        }
+    }
+
+    convenience init(name: String) {
+        self.init()
+        self.name = name
+    }
+}
+
+extension Task: Identifiable {
+    var id: String {
+        _id.stringValue
+    }
+}
