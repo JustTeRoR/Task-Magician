@@ -5,9 +5,8 @@
 
 import UIKit
 
-class RegisterUserWorker
-{
-  func doSomeWork()
-  {
-  }
+class RegisterUserWorker {    
+    func registerPersonThroughVK(authService: AuthService) {
+        authService.wakeUpSession()
+    }
 }

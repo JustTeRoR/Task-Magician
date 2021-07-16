@@ -5,20 +5,11 @@
 
 import UIKit
 
-enum RegisterUser
-{
+enum RegisterUser {
   // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+    enum RegisterUserProcess {
+        struct Request { }
+        struct Response { }
+        struct ViewModel { }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

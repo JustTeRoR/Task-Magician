@@ -23,9 +23,7 @@
 		80D8EA6F269C6036003BAA18 /* AuthorizeUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA69269C6036003BAA18 /* AuthorizeUserViewController.swift */; };
 		80D8EA70269C6036003BAA18 /* AuthorizeUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA6A269C6036003BAA18 /* AuthorizeUserInteractor.swift */; };
 		80D8EA72269C60B4003BAA18 /* AuthorizeUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80D8EA71269C60B4003BAA18 /* AuthorizeUser.storyboard */; };
-		80D8EA7D269CA854003BAA18 /* RegisterUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA77269CA854003BAA18 /* RegisterUserPresenter.swift */; };
 		80D8EA7E269CA854003BAA18 /* RegisterUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA78269CA854003BAA18 /* RegisterUserWorker.swift */; };
-		80D8EA7F269CA854003BAA18 /* RegisterUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA79269CA854003BAA18 /* RegisterUserRouter.swift */; };
 		80D8EA80269CA854003BAA18 /* RegisterUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA7A269CA854003BAA18 /* RegisterUserModels.swift */; };
 		80D8EA81269CA854003BAA18 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA7B269CA854003BAA18 /* RegisterUserViewController.swift */; };
 		80D8EA82269CA854003BAA18 /* RegisterUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA7C269CA854003BAA18 /* RegisterUserInteractor.swift */; };
@@ -77,9 +75,7 @@
 		80D8EA69269C6036003BAA18 /* AuthorizeUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeUserViewController.swift; sourceTree = "<group>"; };
 		80D8EA6A269C6036003BAA18 /* AuthorizeUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeUserInteractor.swift; sourceTree = "<group>"; };
 		80D8EA71269C60B4003BAA18 /* AuthorizeUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthorizeUser.storyboard; sourceTree = "<group>"; };
-		80D8EA77269CA854003BAA18 /* RegisterUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserPresenter.swift; sourceTree = "<group>"; };
 		80D8EA78269CA854003BAA18 /* RegisterUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserWorker.swift; sourceTree = "<group>"; };
-		80D8EA79269CA854003BAA18 /* RegisterUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRouter.swift; sourceTree = "<group>"; };
 		80D8EA7A269CA854003BAA18 /* RegisterUserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserModels.swift; sourceTree = "<group>"; };
 		80D8EA7B269CA854003BAA18 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		80D8EA7C269CA854003BAA18 /* RegisterUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserInteractor.swift; sourceTree = "<group>"; };
@@ -188,9 +184,7 @@
 		80D8EA5F269C4CA6003BAA18 /* RegisterUser */ = {
 			isa = PBXGroup;
 			children = (
-				80D8EA77269CA854003BAA18 /* RegisterUserPresenter.swift */,
 				80D8EA78269CA854003BAA18 /* RegisterUserWorker.swift */,
-				80D8EA79269CA854003BAA18 /* RegisterUserRouter.swift */,
 				80D8EA7A269CA854003BAA18 /* RegisterUserModels.swift */,
 				80D8EA7B269CA854003BAA18 /* RegisterUserViewController.swift */,
 				80D8EA7C269CA854003BAA18 /* RegisterUserInteractor.swift */,
@@ -219,7 +213,6 @@
 		80D8EA61269C4D6F003BAA18 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				80D8EAB326A07F38003BAA18 /* SharedViews */,
 				80D8EA88269CDCAC003BAA18 /* Services */,
 				80D8EA62269C4D76003BAA18 /* User */,
 			);
@@ -238,6 +231,7 @@
 		80D8EA85269CDB93003BAA18 /* ViewTasks */ = {
 			isa = PBXGroup;
 			children = (
+				80D8EABC26A0DF65003BAA18 /* Views */,
 				80D8EA9A269CEBF2003BAA18 /* ViewTasksPresenter.swift */,
 				80D8EA9B269CEBF2003BAA18 /* ViewTasksWorker.swift */,
 				80D8EA9C269CEBF2003BAA18 /* ViewTasksRouter.swift */,
@@ -273,13 +267,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		80D8EAB326A07F38003BAA18 /* SharedViews */ = {
+		80D8EABC26A0DF65003BAA18 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				80D8EAB426A07F47003BAA18 /* TitleView.swift */,
 				80D8EAB626A07FBB003BAA18 /* WebImageView.swift */,
 			);
-			path = SharedViews;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		B56AF1379D7FEB9047E45A2B /* Pods */ = {
@@ -426,13 +420,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				80D8EA5E269C47DC003BAA18 /* CreateTaskInteractor.swift in Sources */,
-				80D8EA7F269CA854003BAA18 /* RegisterUserRouter.swift in Sources */,
 				80D8EA6D269C6036003BAA18 /* AuthorizeUserRouter.swift in Sources */,
 				80D8EA80269CA854003BAA18 /* RegisterUserModels.swift in Sources */,
 				80D8EAA5269CEBF2003BAA18 /* ViewTasksInteractor.swift in Sources */,
 				80D8EA6E269C6036003BAA18 /* AuthorizeUserModels.swift in Sources */,
 				80D8EAA7269CEFD8003BAA18 /* String+subscript.swift in Sources */,
-				80D8EA7D269CA854003BAA18 /* RegisterUserPresenter.swift in Sources */,
 				80D8EAA926A0630E003BAA18 /* AuthorizePresentationController.swift in Sources */,
 				80D8EAA0269CEBF2003BAA18 /* ViewTasksPresenter.swift in Sources */,
 				80D8EA5A269C47DC003BAA18 /* CreateTaskWorker.swift in Sources */,

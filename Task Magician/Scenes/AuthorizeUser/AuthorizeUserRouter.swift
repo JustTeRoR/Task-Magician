@@ -23,14 +23,10 @@ class AuthorizeUserRouter: NSObject, AuthorizeUserRoutingLogic, AuthorizeUserDat
         if let segue = segue {
             // swiftlint:disable force_cast
             let destinationVC = segue.destination as! RegisterUserViewController
-            var destinationDS = destinationVC.router!.dataStore!
-            //passDataToSomewhere(source: dataStore!, destination: &destinationDS)
         } else {
             let storyboard = UIStoryboard(name: "AuthorizeUser", bundle: nil)
             let destinationVC = storyboard.instantiateViewController(withIdentifier: "RegisterUserViewController") as! RegisterUserViewController
             // swiftlint:enable force_cast
-            //var destinationDS = destinationVC.router!.dataStore!
-            //passDataToSomewhere(source: dataStore!, destination: &destinationDS)
             navigateToRegisterUser(source: viewController!, destination: destinationVC)
         }
     }

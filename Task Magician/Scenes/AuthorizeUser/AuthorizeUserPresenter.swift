@@ -14,10 +14,8 @@ class AuthorizeUserPresenter: AuthorizeUserPresentationLogic
 {
   weak var viewController: AuthorizeUserDisplayLogic?
   // MARK: Do something
-  
-  func presentSomething(response: AuthorizeUser.Something.Response)
-  {
-    let viewModel = AuthorizeUser.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    func presentSomething(response: AuthorizeUser.Something.Response) {
+        let viewModel = AuthorizeUser.Something.ViewModel()
+        viewController?.displaySomething(viewModel: viewModel)
+    }
 }

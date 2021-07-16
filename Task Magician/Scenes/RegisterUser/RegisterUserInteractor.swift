@@ -7,7 +7,7 @@ import UIKit
 
 protocol RegisterUserBusinessLogic
 {
-  func doSomething(request: RegisterUser.Something.Request)
+    func registerPersonThroughVK(request: RegisterUser.RegisterUserProcess.Request, authService: AuthService)
 }
 
 protocol RegisterUserDataStore
@@ -15,20 +15,11 @@ protocol RegisterUserDataStore
   //var name: String { get set }
 }
 
-class RegisterUserInteractor: RegisterUserBusinessLogic, RegisterUserDataStore
-{
-  var presenter: RegisterUserPresentationLogic?
-  var worker: RegisterUserWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: RegisterUser.Something.Request)
-  {
-    worker = RegisterUserWorker()
-    worker?.doSomeWork()
+class RegisterUserInteractor: RegisterUserBusinessLogic, RegisterUserDataStore {
+    var worker: RegisterUserWorker?
     
-    let response = RegisterUser.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    func registerPersonThroughVK(request: RegisterUser.RegisterUserProcess.Request, authService: AuthService) {
+        worker = RegisterUserWorker()
+        worker?.registerPersonThroughVK(authService: authService)
+    }
 }

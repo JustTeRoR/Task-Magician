@@ -5,15 +5,8 @@
 
 import UIKit
 
-protocol RegisterUserDisplayLogic: AnyObject
-{
-  func displaySomething(viewModel: RegisterUser.Something.ViewModel)
-}
-
-class RegisterUserViewController: UIViewController, RegisterUserDisplayLogic
-{
+class RegisterUserViewController: UIViewController {
   var interactor: RegisterUserBusinessLogic?
-  var router: (NSObjectProtocol & RegisterUserRoutingLogic & RegisterUserDataPassing)?
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var vkRegisterButton: UIButton!
@@ -31,14 +24,7 @@ class RegisterUserViewController: UIViewController, RegisterUserDisplayLogic
   private func setup() {
     let viewController = self
     let interactor = RegisterUserInteractor()
-    let presenter = RegisterUserPresenter()
-    let router = RegisterUserRouter()
     viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
   }
     private func setupUI() {
         self.welcomeLabel.text = "Добро пожаловать"
@@ -47,21 +33,10 @@ class RegisterUserViewController: UIViewController, RegisterUserDisplayLogic
         self.infoLabel.textColor = UIColor.white
         self.view.backgroundColor = UIColor.orange
         createVKButton(button: vkRegisterButton)
-        
     }
-  // MARK: Routing
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
-    }
-  }
-  // MARK: View lifecycle
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        //doSomething()
         setupUI()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -78,15 +53,14 @@ class RegisterUserViewController: UIViewController, RegisterUserDisplayLogic
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
         navigationController?.navigationBar.shadowImage = nil
     }
-  // MARK: Do something
-  func doSomething() {
-    let request = RegisterUser.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  func displaySomething(viewModel: RegisterUser.Something.ViewModel)  {
-    //nameTextField.text = viewModel.name
-  }
+  
+    func registerPerson(authService: AuthService) {
+        let request = RegisterUser.RegisterUserProcess.Request()
+        interactor?.registerPersonThroughVK(request: request, authService: authService)
+    }
     @IBAction func vkRegisterButtonClicked(_ sender: Any) {
-        print("clicked")
+        print("Register session raised.")
+        let request = RegisterUser.RegisterUserProcess.Request()
+        interactor?.registerPersonThroughVK(request: request, authService: AppDelegate.shared().authService)
     }
 }
