@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="65" width="414" height="44"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <navigationItem title="To Do List" id="o4W-5f-fiw">
+                                    <navigationItem id="o4W-5f-fiw">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6D1-h4-rLM">
                                             <inset key="largeContentSizeImageInsets" minX="0.0" minY="100" maxX="0.0" maxY="-10"/>
                                             <connections>

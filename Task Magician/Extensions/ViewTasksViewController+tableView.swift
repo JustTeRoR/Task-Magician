@@ -18,8 +18,8 @@ extension ViewTasksViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
-        //let model = replacePartList[indexPath.row]
-        //cell.commonInit(serialNumber: model.serialNumber, category: model.partTypeName, make: model.makeName, isOEM: model.isOEM, quantity: model.quantity)
+        let model = tasks[indexPath.row]
+        cell.commonInit(taskModel: model)
         return cell
     }
 }

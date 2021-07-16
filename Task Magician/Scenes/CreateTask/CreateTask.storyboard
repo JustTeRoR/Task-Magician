@@ -15,13 +15,127 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKA-zM-eir">
+                                <rect key="frame" x="10" y="70" width="109.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Yt2-6a-Yn4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="obm-9J-Bgn">
+                                <rect key="frame" x="0.0" y="320" width="414" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Fbr-Nj-KND"/>
+                                </constraints>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                    <!--2037-12-31 11:00:00 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="ru"/>
+                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TDo-79-fBk">
+                                <rect key="frame" x="129.5" y="70" width="274.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8PH-Nl-obo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaD-hD-Vh7">
+                                <rect key="frame" x="153.5" y="130" width="107.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="T2G-Xd-vMO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cp7-Rd-aCF">
+                                <rect key="frame" x="10" y="185" width="394" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="aw9-XN-9LS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата выполнения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sF2-OA-LuP">
+                                <rect key="frame" x="111.5" y="270" width="191" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ODe-jN-a6k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Группа задачи " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B40-Nf-NYe">
+                                <rect key="frame" x="126" y="470" width="162" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CXd-9X-ADu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBs-cZ-wVZ">
+                                <rect key="frame" x="47" y="520" width="320" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Fuj-cQ-p3Y"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cписок подзадач" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mag-nh-I5y">
+                                <rect key="frame" x="112.5" y="570" width="189" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dCQ-8s-wpd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Mag-nh-I5y" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="AO8-n4-pJh"/>
+                            <constraint firstItem="obm-9J-Bgn" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="AaA-z3-bGC"/>
+                            <constraint firstItem="iBs-cZ-wVZ" firstAttribute="top" secondItem="B40-Nf-NYe" secondAttribute="bottom" id="E0a-wY-bkq"/>
+                            <constraint firstItem="sF2-OA-LuP" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="FZm-xH-TPb"/>
+                            <constraint firstItem="B40-Nf-NYe" firstAttribute="top" secondItem="obm-9J-Bgn" secondAttribute="bottom" id="Hvr-7P-7R2"/>
+                            <constraint firstItem="obm-9J-Bgn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Hz0-Uy-85z"/>
+                            <constraint firstItem="cp7-Rd-aCF" firstAttribute="top" secondItem="FaD-hD-Vh7" secondAttribute="bottom" constant="5" id="MTs-OY-M9a"/>
+                            <constraint firstItem="FaD-hD-Vh7" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Psw-2J-5Xh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cp7-Rd-aCF" secondAttribute="trailing" constant="10" id="QZz-Ce-p4o"/>
+                            <constraint firstItem="TDo-79-fBk" firstAttribute="leading" secondItem="iKA-zM-eir" secondAttribute="trailing" constant="10" id="b5S-0d-CsN"/>
+                            <constraint firstItem="B40-Nf-NYe" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="bbU-zl-iOR"/>
+                            <constraint firstItem="sF2-OA-LuP" firstAttribute="top" secondItem="cp7-Rd-aCF" secondAttribute="bottom" constant="10" id="fbT-9f-gyW"/>
+                            <constraint firstItem="TDo-79-fBk" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="70" id="hJX-hB-fuB"/>
+                            <constraint firstItem="obm-9J-Bgn" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="j0d-DK-oGr"/>
+                            <constraint firstItem="FaD-hD-Vh7" firstAttribute="top" secondItem="TDo-79-fBk" secondAttribute="bottom" constant="10" id="k1q-6u-Www"/>
+                            <constraint firstItem="obm-9J-Bgn" firstAttribute="top" secondItem="sF2-OA-LuP" secondAttribute="bottom" id="kZo-5w-bMG"/>
+                            <constraint firstItem="iKA-zM-eir" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="l4G-W0-WbA"/>
+                            <constraint firstItem="cp7-Rd-aCF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="ogt-Hu-L3D"/>
+                            <constraint firstItem="iKA-zM-eir" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="70" id="qII-Ha-rM6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TDo-79-fBk" secondAttribute="trailing" constant="10" id="qvd-ed-k4R"/>
+                            <constraint firstItem="Mag-nh-I5y" firstAttribute="top" secondItem="iBs-cZ-wVZ" secondAttribute="bottom" id="s6S-pl-fmV"/>
+                            <constraint firstItem="iBs-cZ-wVZ" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="sYg-ia-Nfu"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="datePicker" destination="obm-9J-Bgn" id="ymp-WU-WUM"/>
+                        <outlet property="descriptionInputText" destination="cp7-Rd-aCF" id="7LR-EJ-Nbg"/>
+                        <outlet property="groupPicker" destination="iBs-cZ-wVZ" id="xt7-WS-Ene"/>
+                        <outlet property="titleInputText" destination="TDo-79-fBk" id="fCx-9p-xyb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112" y="66"/>
+            <point key="canvasLocation" x="111.59420289855073" y="65.625"/>
         </scene>
     </scenes>
     <resources>

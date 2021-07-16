@@ -9,7 +9,6 @@ import UIKit
 
 class CreateTaskWorker
 {
-  func doSomeWork()
-  {
+  func doSomeWork() {
   }
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 import VK_ios_sdk
+import RealmSwift
 
 protocol ViewTasksDisplayLogic: AnyObject {
     func displayUserData(viewModel: ViewTasks.GetUserInfo.ViewModel.ViewModelData)
@@ -17,6 +18,9 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var interactor: ViewTasksBusinessLogic?
     var router: (NSObjectProtocol & ViewTasksRoutingLogic & ViewTasksDataPassing)?
+    // swiftlint:disable force_try
+    private let realm = try! Realm()
+    // swiftlint:enable force_try
     @IBOutlet weak var tasksTable: UITableView!
     private lazy var titleView = TitleView()
     var tasks = [Task]()
@@ -57,17 +61,27 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
   // MARK: View lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    tasks = realm.objects(Task.self).map({ $0 })
     setupTopBars()
     interactor?.makeRequest(request: ViewTasks.GetUserInfo.Request.RequestType.getUser)
     tasksTable.dataSource = self
     tasksTable.delegate = self
-    tasksTable.register(UITableViewCell.self, forCellReuseIdentifier: "taskCell")
+    tasksTable.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "taskCell")
   }
     
     @IBAction func addNewTask(_ sender: Any) {
+        guard let vc = storyboard?.instantiateViewController(identifier: "CreateTaskViewController") as? CreateTaskViewController else {
+            return
+        }
         
+        vc.compleationHandler = { [weak self] in
+            self?.refresh()
+        }
     }
-    
+    func refresh() {
+        tasks = realm.objects(Task.self).map({ $0 })
+        tasksTable.reloadData()
+    }
   // MARK: Do something
   func doSomething() {
     let request = ViewTasks.Something.Request()
@@ -99,12 +113,6 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
         let authViewController:AuthorizeUserViewController = UIStoryboard(name: "AuthorizeUser", bundle: nil)
             .instantiateViewController(withIdentifier: "AuthorizeUserViewController") as! AuthorizeUserViewController
         // swiftlint:enable force_cast
-        /*
-        guard let authViewController: AuthorizeUserViewController = loginStoryboard.instantiateViewController(withIdentifier: "AuthorizeUserViewController") as? AuthorizeUserViewController else {
-            print("Couldn't find the view controller")
-            return
-        }*/
-
         let alert = UIAlertController(title: "Выйти?",
                                       message: "Вы всегда можете получить доступ к своему аккаунту, войдя в систему",
                                       preferredStyle: UIAlertController.Style.alert)
@@ -117,7 +125,6 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
                                       style: UIAlertAction.Style.destructive,
                                       handler: {(_: UIAlertAction!) in
                                         print("\(#function)")
-                                        //LogOut and segue at authViewController
                                         VKSdk.forceLogout()
                                         app.currentUser?.logOut()
                                         self.navigationController?.pushViewController(authViewController,

@@ -17,16 +17,12 @@ protocol CreateTaskDataStore
   //var name: String { get set }
 }
 
-class CreateTaskInteractor: CreateTaskBusinessLogic, CreateTaskDataStore
-{
+class CreateTaskInteractor: CreateTaskBusinessLogic, CreateTaskDataStore {
   var presenter: CreateTaskPresentationLogic?
   var worker: CreateTaskWorker?
-  //var name: String = ""
   
   // MARK: Do something
-  
-  func doSomething(request: CreateTask.Something.Request)
-  {
+  func doSomething(request: CreateTask.Something.Request) {
     worker = CreateTaskWorker()
     worker?.doSomeWork()
     
