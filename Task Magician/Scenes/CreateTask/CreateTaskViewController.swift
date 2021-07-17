@@ -40,8 +40,19 @@ class CreateTaskViewController: UIViewController {
         self.view.backgroundColor = UIColor.systemGroupedBackground
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.btnCreateNewTask))
         self.navigationItem.rightBarButtonItem = saveButton
+        setUpPickerView()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        makeNavigationBarClear()
+        navigationController?.navigationBar.tintColor = UIColor.black
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        restoreDefaultNavigationBar()
+    }
+    
     @objc func btnCreateNewTask() {
         if let text = titleInputText.text, !text.isEmpty {
             let date = datePicker.date
@@ -58,5 +69,10 @@ class CreateTaskViewController: UIViewController {
             print("Add something to name")
         }
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func setUpPickerView() {
+        groupPicker.delegate = self
+        groupPicker.dataSource = self
     }
 }

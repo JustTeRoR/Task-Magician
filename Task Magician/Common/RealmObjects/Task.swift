@@ -16,6 +16,13 @@ enum TaskStatus: String {
     case Completed = "Completed"
 }
 
+enum TaskGroup: String, CaseIterable {
+    case Private = "Личные"
+    case Work = "Рабочие"
+    case Shopping = "Покупки"
+    case Assignments = "Поручения"
+}
+
 class Task: Object {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var name: String = ""

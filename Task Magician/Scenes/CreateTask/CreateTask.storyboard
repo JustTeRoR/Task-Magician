@@ -82,13 +82,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBs-cZ-wVZ">
-                                <rect key="frame" x="47" y="520" width="320" height="50"/>
+                                <rect key="frame" x="47" y="520" width="320" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Fuj-cQ-p3Y"/>
+                                    <constraint firstAttribute="height" constant="75" id="Fuj-cQ-p3Y"/>
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cписок подзадач" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mag-nh-I5y">
-                                <rect key="frame" x="112.5" y="570" width="189" height="50"/>
+                                <rect key="frame" x="112.5" y="595" width="189" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="dCQ-8s-wpd"/>
                                 </constraints>

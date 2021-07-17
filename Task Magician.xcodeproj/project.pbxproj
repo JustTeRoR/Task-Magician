@@ -50,6 +50,7 @@
 		80D8EAC726A1C991003BAA18 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D8EAC526A1C991003BAA18 /* TaskTableViewCell.xib */; };
 		80D8EAC926A1D15A003BAA18 /* CreateTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80D8EAC826A1D15A003BAA18 /* CreateTask.storyboard */; };
 		80D8EACF26A34B0B003BAA18 /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EACE26A34B0B003BAA18 /* UIViewController+NavigationBar.swift */; };
+		80D8EAD126A37319003BAA18 /* CreateTaskViewController+picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EAD026A37319003BAA18 /* CreateTaskViewController+picker.swift */; };
 		FD6B6D56F55B4D412B335455 /* Pods_Task_Magician.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35342C6F0B04FC3DE7DFA85B /* Pods_Task_Magician.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		80D8EAC526A1C991003BAA18 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		80D8EAC826A1D15A003BAA18 /* CreateTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateTask.storyboard; sourceTree = "<group>"; };
 		80D8EACE26A34B0B003BAA18 /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
+		80D8EAD026A37319003BAA18 /* CreateTaskViewController+picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateTaskViewController+picker.swift"; sourceTree = "<group>"; };
 		F0EF73A27E966FF958D8F56F /* Pods-Task Magician.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task Magician.debug.xcconfig"; path = "Target Support Files/Pods-Task Magician/Pods-Task Magician.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -257,6 +259,7 @@
 				80D8EABA26A08068003BAA18 /* UiView+constraints.swift */,
 				80D8EAC226A1C901003BAA18 /* ViewTasksViewController+tableView.swift */,
 				80D8EACE26A34B0B003BAA18 /* UIViewController+NavigationBar.swift */,
+				80D8EAD026A37319003BAA18 /* CreateTaskViewController+picker.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				80D8EAA1269CEBF2003BAA18 /* ViewTasksWorker.swift in Sources */,
 				80D8EA81269CA854003BAA18 /* RegisterUserViewController.swift in Sources */,
 				80D8EA8C269CDD88003BAA18 /* UserResponse.swift in Sources */,
+				80D8EAD126A37319003BAA18 /* CreateTaskViewController+picker.swift in Sources */,
 				80D8EAB226A070DB003BAA18 /* AuthorizeView.swift in Sources */,
 				80D8EA94269CE070003BAA18 /* MainService.swift in Sources */,
 				80D8EABB26A08068003BAA18 /* UiView+constraints.swift in Sources */,
