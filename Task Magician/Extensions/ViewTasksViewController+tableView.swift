@@ -22,4 +22,19 @@ extension ViewTasksViewController {
         cell.commonInit(taskModel: model)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            // swiftlint:disable force_try
+            try! self.realm.write {
+                realm.delete(tasks[indexPath.row])
+                self.refresh()
+                self.tasksTable.reloadData()
+            }
+        }
+    }
 }

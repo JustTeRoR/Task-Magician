@@ -15,21 +15,21 @@ protocol ViewTasksDisplayLogic: AnyObject {
 }
 
 class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TitleViewDelegate, ViewTasksDisplayLogic {
-    
+
     var interactor: ViewTasksBusinessLogic?
     var router: (NSObjectProtocol & ViewTasksRoutingLogic & ViewTasksDataPassing)?
     // swiftlint:disable force_try
-    private let realm = try! Realm()
-    // swiftlint:enable force_try
+    //var realm = try! Realm(configuration: app.currentUser!.configuration(partitionValue: app.currentUser!.id))
+    var realm: Realm!
     @IBOutlet weak var tasksTable: UITableView!
     private lazy var titleView = TitleView()
     var tasks = [Task]()
-  // MARK: Object lifecycle
+    // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
     }
-  
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
@@ -47,6 +47,11 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
+      
+        guard let user = app.currentUser else {
+            fatalError("Person must be logged to access this view")
+        }
+        realm = try! Realm(configuration: user.configuration(partitionValue: user.id))
     }
   
   // MARK: Routing
@@ -67,13 +72,15 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
     tasksTable.dataSource = self
     tasksTable.delegate = self
     tasksTable.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "taskCell")
+    refresh()
+    tasksTable.reloadData()
   }
     
     @IBAction func addNewTask(_ sender: Any) {
         guard let vc = storyboard?.instantiateViewController(identifier: "CreateTaskViewController") as? CreateTaskViewController else {
             return
         }
-        
+        self.navigationController?.pushViewController(vc, animated: true)
         vc.compleationHandler = { [weak self] in
             self?.refresh()
         }

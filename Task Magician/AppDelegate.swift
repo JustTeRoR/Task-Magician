@@ -9,7 +9,7 @@ import UIKit
 import VK_ios_sdk
 import RealmSwift
 
-let app = App(id: "task_magician-lmcdc")
+let app = App(id: "task_magician-lmcdc", configuration: AppConfiguration(baseURL: "https://realm.mongodb.com", transport: nil, localAppName: nil, localAppVersion: nil))
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, AuthServiceDelegate {
@@ -26,11 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthServiceDelegate {
         // Application if user logged in enters wake up session afterm that's why exception about no windows
         // Decided for now just giving app delegate empty window until it gets the correct one.
         // bad bad bad, to think about next 3 lines, how to get rid of them and not recieve an error again.
-        let authVC: ViewTasksViewController = ViewTasksViewController.loadFromStoryboard()
+        let authVC: AuthorizeUserViewController = AuthorizeUserViewController.loadFromStoryboard()
         let navVC = UINavigationController(rootViewController: authVC)
         window?.rootViewController = navVC
-        
-        
         self.authService = AuthService()
         authService.delegate = self
         let scope = ["wall", "friends"]

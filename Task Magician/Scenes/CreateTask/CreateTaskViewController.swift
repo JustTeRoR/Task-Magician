@@ -22,22 +22,22 @@ class CreateTaskViewController: UIViewController, CreateTaskDisplayLogic {
     @IBOutlet weak var groupPicker: UIPickerView!
     
     // swiftlint:disable force_try
-    private let realm = try! Realm()
-    // swiftlint:enable force_try
+    let realm = try! Realm(configuration: app.currentUser!.configuration(partitionValue: app.currentUser!.id))
     public var compleationHandler: (() -> Void)?
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        guard let user = app.currentUser else {
+            fatalError("User must be logged to access to this view")
+        }
         setup()
     }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
   // MARK: Setup
-  
     private func setup() {
         let viewController = self
         let interactor = CreateTaskInteractor()
@@ -52,35 +52,34 @@ class CreateTaskViewController: UIViewController, CreateTaskDisplayLogic {
     }
   
   // MARK: Routing
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+          let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+          if let router = router, router.responds(to: selector) {
+            router.perform(selector, with: segue)
+          }
+        }
     }
-  }
   
   // MARK: View lifecycle
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    self.view.backgroundColor = UIColor.systemGroupedBackground
-    let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.btnCreateNewTask))
-    self.navigationItem.rightBarButtonItem = saveButton
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = UIColor.systemGroupedBackground
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.btnCreateNewTask))
+        self.navigationItem.rightBarButtonItem = saveButton
+    }
 
-    
     @objc func btnCreateNewTask() {
         if let text = titleInputText.text, !text.isEmpty {
             let date = datePicker.date
-            
-            realm.beginWrite()
             let newTask = Task()
             newTask.name = text
             newTask.owner = app.currentUser?.id
-            realm.add(newTask)
             // swiftlint:disable force_try
-            try! realm.commitWrite()
+            
+            try!self.realm.write{
+                self.realm.add(newTask)
+            }
             // swiftlint:enable force_try
             compleationHandler?()
         } else {

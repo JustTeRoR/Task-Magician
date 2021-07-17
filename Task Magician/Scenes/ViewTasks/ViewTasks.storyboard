@@ -29,7 +29,6 @@
                                             <inset key="largeContentSizeImageInsets" minX="0.0" minY="100" maxX="0.0" maxY="-10"/>
                                             <connections>
                                                 <action selector="addNewTask:" destination="Y6W-OH-hqX" id="VjU-zA-Rd0"/>
-                                                <segue destination="j1a-Pw-KhX" kind="show" id="L8X-LF-RCX"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
