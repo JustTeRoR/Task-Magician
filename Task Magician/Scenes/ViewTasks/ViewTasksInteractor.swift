@@ -9,8 +9,7 @@ import UIKit
 
 protocol ViewTasksBusinessLogic
 {
-    func doSomething(request: ViewTasks.Something.Request)
-    func makeRequest(request: ViewTasks.GetUserInfo.Request.RequestType)
+    func makeRequest(request: ViewTasks.UserOperations.Request.RequestType)
 }
 
 protocol ViewTasksDataStore
@@ -19,20 +18,12 @@ protocol ViewTasksDataStore
 }
 
 class ViewTasksInteractor: ViewTasksBusinessLogic, ViewTasksDataStore {
-    typealias ResponseTypeAlias = ViewTasks.GetUserInfo.Response.ResponseType
+    typealias ResponseTypeAlias = ViewTasks.UserOperations.Response.ResponseType
     var presenter: ViewTasksPresentationLogic?
     var worker: ViewTasksWorker?
     var service: MainService?
   
-    // MARK: Do something
-    func doSomething(request: ViewTasks.Something.Request) {
-        worker = ViewTasksWorker()
-        worker?.doSomeWork()
-        let response = ViewTasks.Something.Response()
-        presenter?.presentSomething(response: response)
-    }
-    
-    func makeRequest(request: ViewTasks.GetUserInfo.Request.RequestType) {
+    func makeRequest(request: ViewTasks.UserOperations.Request.RequestType) {
         if service == nil {
             service = MainService()
         }

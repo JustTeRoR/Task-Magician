@@ -8,28 +8,17 @@
 import UIKit
 import RealmSwift
 
-protocol CreateTaskDisplayLogic: AnyObject
-{
-  func displaySomething(viewModel: CreateTask.Something.ViewModel)
-}
-
-class CreateTaskViewController: UIViewController, CreateTaskDisplayLogic {
-    var interactor: CreateTaskBusinessLogic?
-    var router: (NSObjectProtocol & CreateTaskRoutingLogic & CreateTaskDataPassing)?
+class CreateTaskViewController: UIViewController {
     @IBOutlet weak var titleInputText: UITextField!
     @IBOutlet weak var descriptionInputText: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var groupPicker: UIPickerView!
-    
     // swiftlint:disable force_try
-    let realm = try! Realm(configuration: app.currentUser!.configuration(partitionValue: app.currentUser!.id))
+    var realm: Realm!
     public var compleationHandler: (() -> Void)?
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        guard let user = app.currentUser else {
-            fatalError("User must be logged to access to this view")
-        }
         setup()
     }
     
@@ -37,31 +26,15 @@ class CreateTaskViewController: UIViewController, CreateTaskDisplayLogic {
         super.init(coder: aDecoder)
         setup()
     }
-  // MARK: Setup
+    // MARK: Setup
     private func setup() {
-        let viewController = self
-        let interactor = CreateTaskInteractor()
-        let presenter = CreateTaskPresenter()
-        let router = CreateTaskRouter()
-        viewController.interactor = interactor
-        viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
-        router.viewController = viewController
-        router.dataStore = interactor
-    }
-  
-  // MARK: Routing
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let scene = segue.identifier {
-          let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-          if let router = router, router.responds(to: selector) {
-            router.perform(selector, with: segue)
-          }
+        guard let user = app.currentUser else {
+            fatalError("Person must be logged to access this view")
         }
+        realm = try! Realm(configuration: user.configuration(partitionValue: user.id))
     }
-  
-  // MARK: View lifecycle
+    
+    // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.systemGroupedBackground
@@ -76,24 +49,14 @@ class CreateTaskViewController: UIViewController, CreateTaskDisplayLogic {
             newTask.name = text
             newTask.owner = app.currentUser?.id
             // swiftlint:disable force_try
-            
-            try!self.realm.write{
+            try!self.realm.write {
                 self.realm.add(newTask)
             }
             // swiftlint:enable force_try
             compleationHandler?()
         } else {
-            print ("Add something to name")
+            print("Add something to name")
         }
         self.navigationController?.popViewController(animated: true)
     }
-  // MARK: Do something
-  func doSomething() {
-    let request = CreateTask.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: CreateTask.Something.ViewModel) {
-    //nameTextField.text = viewModel.name
-  }
 }

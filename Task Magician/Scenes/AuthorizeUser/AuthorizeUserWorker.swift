@@ -5,8 +5,7 @@
 
 import UIKit
 
-class AuthorizeUserWorker
-{
+class AuthorizeUserWorker {
     func doSomeWork() {
     }
     

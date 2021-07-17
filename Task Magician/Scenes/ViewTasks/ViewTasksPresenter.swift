@@ -7,14 +7,12 @@
 
 import UIKit
 
-protocol ViewTasksPresentationLogic
-{
-    func presentUserInfo(response: ViewTasks.GetUserInfo.Response.ResponseType)
-    func presentSomething(response: ViewTasks.Something.Response)
+protocol ViewTasksPresentationLogic {
+    func presentUserInfo(response: ViewTasks.UserOperations.Response.ResponseType)
 }
 
 class ViewTasksPresenter: ViewTasksPresentationLogic {
-    typealias ViewModelAlias = ViewTasks.GetUserInfo.ViewModel.ViewModelData
+    typealias ViewModelAlias = ViewTasks.UserOperations.ViewModel.ViewModelData
     weak var viewController: ViewTasksDisplayLogic?
   
     let dateFormatter: DateFormatter = {
@@ -24,17 +22,12 @@ class ViewTasksPresenter: ViewTasksPresentationLogic {
         return dateFormater
     }()
   
-    func presentUserInfo(response: ViewTasks.GetUserInfo.Response.ResponseType) {
+    func presentUserInfo(response: ViewTasks.UserOperations.Response.ResponseType) {
         switch response {
         case .presentUserInfo(let user):
             let userViewModel = UserViewModel.init(photoUrlString: user?.photo100, name: user!.name)
             viewController?.displayUserData(viewModel: ViewModelAlias.displayUser(userViewModel: userViewModel))
         }
 
-    }
-    
-    func presentSomething(response: ViewTasks.Something.Response) {
-        let viewModel = ViewTasks.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
     }
 }

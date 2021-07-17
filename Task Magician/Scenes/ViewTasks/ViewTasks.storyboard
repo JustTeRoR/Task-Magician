@@ -56,16 +56,6 @@
             </objects>
             <point key="canvasLocation" x="15.942028985507248" y="-15.401785714285714"/>
         </scene>
-        <!--CreateTask-->
-        <scene sceneID="KoB-Iq-v2J">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="CreateTaskViewController" storyboardName="CreateTask" id="j1a-Pw-KhX" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="d4M-fl-g1e"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aw5-4r-ekH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="667" y="-15"/>
-        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

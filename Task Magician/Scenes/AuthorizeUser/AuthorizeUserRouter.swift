@@ -16,9 +16,9 @@ protocol AuthorizeUserDataPassing {
 }
 
 class AuthorizeUserRouter: NSObject, AuthorizeUserRoutingLogic, AuthorizeUserDataPassing {
-  weak var viewController: AuthorizeUserViewController?
-  var dataStore: AuthorizeUserDataStore?
-  // MARK: Routing
+    weak var viewController: AuthorizeUserViewController?
+    var dataStore: AuthorizeUserDataStore?
+    // MARK: Routing
     func routeToRegister(segue: UIStoryboardSegue?) {
         if let segue = segue {
             // swiftlint:disable force_cast
@@ -31,13 +31,8 @@ class AuthorizeUserRouter: NSObject, AuthorizeUserRoutingLogic, AuthorizeUserDat
         }
     }
 
-  // MARK: Navigation
+    // MARK: Navigation
     func navigateToRegisterUser(source: AuthorizeUserViewController, destination: RegisterUserViewController) {
         source.show(destination, sender: nil)
     }
-  // MARK: Passing data
-  //func passDataToSomewhere(source: AuthorizeUserDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
 }

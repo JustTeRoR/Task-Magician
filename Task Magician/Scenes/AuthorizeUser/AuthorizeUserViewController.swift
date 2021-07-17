@@ -6,7 +6,6 @@
 import UIKit
 
 protocol AuthorizeUserDisplayLogic: AnyObject {
-    func displaySomething(viewModel: AuthorizeUser.Something.ViewModel)
 }
 
 class AuthorizeUserViewController: UIViewController, AuthorizeUserDisplayLogic {
@@ -30,12 +29,9 @@ class AuthorizeUserViewController: UIViewController, AuthorizeUserDisplayLogic {
     private func setup() {
         let viewController = self
         let interactor = AuthorizeUserInteractor()
-        let presenter = AuthorizeUserPresenter()
         let router = AuthorizeUserRouter()
         viewController.interactor = interactor
         viewController.router = router
-        interactor.presenter = presenter
-        presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
     }
@@ -59,30 +55,17 @@ class AuthorizeUserViewController: UIViewController, AuthorizeUserDisplayLogic {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // doSomething()
         setupUI()
     }
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
-            // Make the navigation bar background clear
-            navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-            navigationController?.navigationBar.shadowImage = UIImage()
-            navigationController?.navigationBar.isTranslucent = true
+            makeNavigationBarClear()
         }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // Restore the navigation bar to default
-        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        navigationController?.navigationBar.shadowImage = nil
+        restoreDefaultNavigationBar()
     }
-    // MARK: Do something
-    func doSomething() {
-        let request = AuthorizeUser.Something.Request()
-        interactor?.doSomething(request: request)
-    }
-    func displaySomething(viewModel: AuthorizeUser.Something.ViewModel) {
-        // nameTextField.text = viewModel.name
-    }
+    
     @IBAction func registerButtonClicked(_ sender: Any) {
         
     }

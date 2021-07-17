@@ -9,14 +9,8 @@
 /* Begin PBXBuildFile section */
 		805EB6952699EB1D001CB66E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805EB6942699EB1D001CB66E /* AppDelegate.swift */; };
 		805EB69E2699EB1E001CB66E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 805EB69D2699EB1E001CB66E /* Assets.xcassets */; };
-		80D8EA59269C47DC003BAA18 /* CreateTaskPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA53269C47DC003BAA18 /* CreateTaskPresenter.swift */; };
-		80D8EA5A269C47DC003BAA18 /* CreateTaskWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA54269C47DC003BAA18 /* CreateTaskWorker.swift */; };
-		80D8EA5B269C47DC003BAA18 /* CreateTaskRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA55269C47DC003BAA18 /* CreateTaskRouter.swift */; };
-		80D8EA5C269C47DC003BAA18 /* CreateTaskModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA56269C47DC003BAA18 /* CreateTaskModels.swift */; };
 		80D8EA5D269C47DC003BAA18 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA57269C47DC003BAA18 /* CreateTaskViewController.swift */; };
-		80D8EA5E269C47DC003BAA18 /* CreateTaskInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA58269C47DC003BAA18 /* CreateTaskInteractor.swift */; };
 		80D8EA64269C4D84003BAA18 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA63269C4D84003BAA18 /* User.swift */; };
-		80D8EA6B269C6036003BAA18 /* AuthorizeUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA65269C6036003BAA18 /* AuthorizeUserPresenter.swift */; };
 		80D8EA6C269C6036003BAA18 /* AuthorizeUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA66269C6036003BAA18 /* AuthorizeUserWorker.swift */; };
 		80D8EA6D269C6036003BAA18 /* AuthorizeUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA67269C6036003BAA18 /* AuthorizeUserRouter.swift */; };
 		80D8EA6E269C6036003BAA18 /* AuthorizeUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA68269C6036003BAA18 /* AuthorizeUserModels.swift */; };
@@ -38,7 +32,6 @@
 		80D8EA97269CEB0E003BAA18 /* UIViewController+loadFromStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA96269CEB0E003BAA18 /* UIViewController+loadFromStoryboard.swift */; };
 		80D8EAA0269CEBF2003BAA18 /* ViewTasksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA9A269CEBF2003BAA18 /* ViewTasksPresenter.swift */; };
 		80D8EAA1269CEBF2003BAA18 /* ViewTasksWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA9B269CEBF2003BAA18 /* ViewTasksWorker.swift */; };
-		80D8EAA2269CEBF2003BAA18 /* ViewTasksRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA9C269CEBF2003BAA18 /* ViewTasksRouter.swift */; };
 		80D8EAA3269CEBF2003BAA18 /* ViewTasksModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA9D269CEBF2003BAA18 /* ViewTasksModels.swift */; };
 		80D8EAA4269CEBF2003BAA18 /* ViewTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA9E269CEBF2003BAA18 /* ViewTasksViewController.swift */; };
 		80D8EAA5269CEBF2003BAA18 /* ViewTasksInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA9F269CEBF2003BAA18 /* ViewTasksInteractor.swift */; };
@@ -56,6 +49,7 @@
 		80D8EAC626A1C991003BAA18 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EAC426A1C991003BAA18 /* TaskTableViewCell.swift */; };
 		80D8EAC726A1C991003BAA18 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D8EAC526A1C991003BAA18 /* TaskTableViewCell.xib */; };
 		80D8EAC926A1D15A003BAA18 /* CreateTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80D8EAC826A1D15A003BAA18 /* CreateTask.storyboard */; };
+		80D8EACF26A34B0B003BAA18 /* UIViewController+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EACE26A34B0B003BAA18 /* UIViewController+NavigationBar.swift */; };
 		FD6B6D56F55B4D412B335455 /* Pods_Task_Magician.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35342C6F0B04FC3DE7DFA85B /* Pods_Task_Magician.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,14 +60,8 @@
 		805EB6942699EB1D001CB66E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		805EB69D2699EB1E001CB66E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		805EB6A22699EB1E001CB66E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80D8EA53269C47DC003BAA18 /* CreateTaskPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskPresenter.swift; sourceTree = "<group>"; };
-		80D8EA54269C47DC003BAA18 /* CreateTaskWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskWorker.swift; sourceTree = "<group>"; };
-		80D8EA55269C47DC003BAA18 /* CreateTaskRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskRouter.swift; sourceTree = "<group>"; };
-		80D8EA56269C47DC003BAA18 /* CreateTaskModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskModels.swift; sourceTree = "<group>"; };
 		80D8EA57269C47DC003BAA18 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
-		80D8EA58269C47DC003BAA18 /* CreateTaskInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskInteractor.swift; sourceTree = "<group>"; };
 		80D8EA63269C4D84003BAA18 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		80D8EA65269C6036003BAA18 /* AuthorizeUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeUserPresenter.swift; sourceTree = "<group>"; };
 		80D8EA66269C6036003BAA18 /* AuthorizeUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeUserWorker.swift; sourceTree = "<group>"; };
 		80D8EA67269C6036003BAA18 /* AuthorizeUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeUserRouter.swift; sourceTree = "<group>"; };
 		80D8EA68269C6036003BAA18 /* AuthorizeUserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeUserModels.swift; sourceTree = "<group>"; };
@@ -95,7 +83,6 @@
 		80D8EA96269CEB0E003BAA18 /* UIViewController+loadFromStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+loadFromStoryboard.swift"; sourceTree = "<group>"; };
 		80D8EA9A269CEBF2003BAA18 /* ViewTasksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTasksPresenter.swift; sourceTree = "<group>"; };
 		80D8EA9B269CEBF2003BAA18 /* ViewTasksWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTasksWorker.swift; sourceTree = "<group>"; };
-		80D8EA9C269CEBF2003BAA18 /* ViewTasksRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTasksRouter.swift; sourceTree = "<group>"; };
 		80D8EA9D269CEBF2003BAA18 /* ViewTasksModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTasksModels.swift; sourceTree = "<group>"; };
 		80D8EA9E269CEBF2003BAA18 /* ViewTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTasksViewController.swift; sourceTree = "<group>"; };
 		80D8EA9F269CEBF2003BAA18 /* ViewTasksInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTasksInteractor.swift; sourceTree = "<group>"; };
@@ -113,6 +100,7 @@
 		80D8EAC426A1C991003BAA18 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		80D8EAC526A1C991003BAA18 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		80D8EAC826A1D15A003BAA18 /* CreateTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateTask.storyboard; sourceTree = "<group>"; };
+		80D8EACE26A34B0B003BAA18 /* UIViewController+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavigationBar.swift"; sourceTree = "<group>"; };
 		F0EF73A27E966FF958D8F56F /* Pods-Task Magician.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Task Magician.debug.xcconfig"; path = "Target Support Files/Pods-Task Magician/Pods-Task Magician.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,12 +169,7 @@
 		80D8EA52269B01E7003BAA18 /* CreateTask */ = {
 			isa = PBXGroup;
 			children = (
-				80D8EA53269C47DC003BAA18 /* CreateTaskPresenter.swift */,
-				80D8EA54269C47DC003BAA18 /* CreateTaskWorker.swift */,
-				80D8EA55269C47DC003BAA18 /* CreateTaskRouter.swift */,
-				80D8EA56269C47DC003BAA18 /* CreateTaskModels.swift */,
 				80D8EA57269C47DC003BAA18 /* CreateTaskViewController.swift */,
-				80D8EA58269C47DC003BAA18 /* CreateTaskInteractor.swift */,
 				80D8EAC826A1D15A003BAA18 /* CreateTask.storyboard */,
 			);
 			path = CreateTask;
@@ -207,7 +190,6 @@
 		80D8EA60269C4CBA003BAA18 /* AuthorizeUser */ = {
 			isa = PBXGroup;
 			children = (
-				80D8EA65269C6036003BAA18 /* AuthorizeUserPresenter.swift */,
 				80D8EA66269C6036003BAA18 /* AuthorizeUserWorker.swift */,
 				80D8EA67269C6036003BAA18 /* AuthorizeUserRouter.swift */,
 				80D8EA68269C6036003BAA18 /* AuthorizeUserModels.swift */,
@@ -245,7 +227,6 @@
 				80D8EABC26A0DF65003BAA18 /* Views */,
 				80D8EA9A269CEBF2003BAA18 /* ViewTasksPresenter.swift */,
 				80D8EA9B269CEBF2003BAA18 /* ViewTasksWorker.swift */,
-				80D8EA9C269CEBF2003BAA18 /* ViewTasksRouter.swift */,
 				80D8EA9D269CEBF2003BAA18 /* ViewTasksModels.swift */,
 				80D8EA9E269CEBF2003BAA18 /* ViewTasksViewController.swift */,
 				80D8EA9F269CEBF2003BAA18 /* ViewTasksInteractor.swift */,
@@ -275,6 +256,7 @@
 				80D8EAAF26A06768003BAA18 /* UIViewController+createCommonButton.swift */,
 				80D8EABA26A08068003BAA18 /* UiView+constraints.swift */,
 				80D8EAC226A1C901003BAA18 /* ViewTasksViewController+tableView.swift */,
+				80D8EACE26A34B0B003BAA18 /* UIViewController+NavigationBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -444,7 +426,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80D8EA5E269C47DC003BAA18 /* CreateTaskInteractor.swift in Sources */,
 				80D8EA6D269C6036003BAA18 /* AuthorizeUserRouter.swift in Sources */,
 				80D8EA80269CA854003BAA18 /* RegisterUserModels.swift in Sources */,
 				80D8EAA5269CEBF2003BAA18 /* ViewTasksInteractor.swift in Sources */,
@@ -452,12 +433,10 @@
 				80D8EAA7269CEFD8003BAA18 /* String+subscript.swift in Sources */,
 				80D8EAA926A0630E003BAA18 /* AuthorizePresentationController.swift in Sources */,
 				80D8EAA0269CEBF2003BAA18 /* ViewTasksPresenter.swift in Sources */,
-				80D8EA5A269C47DC003BAA18 /* CreateTaskWorker.swift in Sources */,
 				80D8EAB026A06768003BAA18 /* UIViewController+createCommonButton.swift in Sources */,
 				80D8EA8E269CDDFE003BAA18 /* AuthService.swift in Sources */,
 				805EB6952699EB1D001CB66E /* AppDelegate.swift in Sources */,
 				80D8EA97269CEB0E003BAA18 /* UIViewController+loadFromStoryboard.swift in Sources */,
-				80D8EA5B269C47DC003BAA18 /* CreateTaskRouter.swift in Sources */,
 				80D8EAC626A1C991003BAA18 /* TaskTableViewCell.swift in Sources */,
 				80D8EAC326A1C901003BAA18 /* ViewTasksViewController+tableView.swift in Sources */,
 				80D8EAA1269CEBF2003BAA18 /* ViewTasksWorker.swift in Sources */,
@@ -467,16 +446,13 @@
 				80D8EA94269CE070003BAA18 /* MainService.swift in Sources */,
 				80D8EABB26A08068003BAA18 /* UiView+constraints.swift in Sources */,
 				80D8EAB726A07FBB003BAA18 /* WebImageView.swift in Sources */,
-				80D8EAA2269CEBF2003BAA18 /* ViewTasksRouter.swift in Sources */,
-				80D8EA5C269C47DC003BAA18 /* CreateTaskModels.swift in Sources */,
 				80D8EA92269CDF1F003BAA18 /* NetworkDataFetcher.swift in Sources */,
-				80D8EA59269C47DC003BAA18 /* CreateTaskPresenter.swift in Sources */,
 				80D8EAA4269CEBF2003BAA18 /* ViewTasksViewController.swift in Sources */,
 				80D8EA7E269CA854003BAA18 /* RegisterUserWorker.swift in Sources */,
+				80D8EACF26A34B0B003BAA18 /* UIViewController+NavigationBar.swift in Sources */,
 				80D8EA8A269CDCC1003BAA18 /* API.swift in Sources */,
 				80D8EA6C269C6036003BAA18 /* AuthorizeUserWorker.swift in Sources */,
 				80D8EA82269CA854003BAA18 /* RegisterUserInteractor.swift in Sources */,
-				80D8EA6B269C6036003BAA18 /* AuthorizeUserPresenter.swift in Sources */,
 				80D8EAAD26A06558003BAA18 /* UIVIewController+createVkButton.swift in Sources */,
 				80D8EAC126A1AF09003BAA18 /* Task.swift in Sources */,
 				80D8EA6F269C6036003BAA18 /* AuthorizeUserViewController.swift in Sources */,

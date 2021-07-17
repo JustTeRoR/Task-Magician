@@ -10,9 +10,10 @@ import RealmSwift
 
 // swiftlint:disable identifier_name
 enum TaskStatus: String {
-    case Open
-    case InProgress
-    case Complete
+    case Open = "Open"
+    case InProgress = "In Progress"
+    case OnHold = "On Hold"
+    case Completed = "Completed"
 }
 
 class Task: Object {

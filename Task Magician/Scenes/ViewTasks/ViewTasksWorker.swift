@@ -7,9 +7,7 @@
 
 import UIKit
 
-class ViewTasksWorker
-{
-  func doSomeWork()
-  {
+class ViewTasksWorker {
+  func doSomeWork() {
   }
 }

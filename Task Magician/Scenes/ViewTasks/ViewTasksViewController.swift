@@ -10,16 +10,13 @@ import VK_ios_sdk
 import RealmSwift
 
 protocol ViewTasksDisplayLogic: AnyObject {
-    func displayUserData(viewModel: ViewTasks.GetUserInfo.ViewModel.ViewModelData)
-    func displaySomething(viewModel: ViewTasks.Something.ViewModel)
+    func displayUserData(viewModel: ViewTasks.UserOperations.ViewModel.ViewModelData)
 }
 
 class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TitleViewDelegate, ViewTasksDisplayLogic {
 
     var interactor: ViewTasksBusinessLogic?
-    var router: (NSObjectProtocol & ViewTasksRoutingLogic & ViewTasksDataPassing)?
     // swiftlint:disable force_try
-    //var realm = try! Realm(configuration: app.currentUser!.configuration(partitionValue: app.currentUser!.id))
     var realm: Realm!
     @IBOutlet weak var tasksTable: UITableView!
     private lazy var titleView = TitleView()
@@ -40,48 +37,31 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
         let viewController = self
         let interactor = ViewTasksInteractor()
         let presenter = ViewTasksPresenter()
-        let router = ViewTasksRouter()
         viewController.interactor = interactor
-        viewController.router = router
         interactor.presenter = presenter
         presenter.viewController = viewController
-        router.viewController = viewController
-        router.dataStore = interactor
-      
         guard let user = app.currentUser else {
             fatalError("Person must be logged to access this view")
         }
         realm = try! Realm(configuration: user.configuration(partitionValue: user.id))
     }
-  
-  // MARK: Routing
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+      
+    // MARK: View lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tasks = realm.objects(Task.self).map({ $0 })
+        setupTopBars()
+        interactor?.makeRequest(request: ViewTasks.UserOperations.Request.RequestType.getUser)
+        tasksTable.dataSource = self
+        tasksTable.delegate = self
+        tasksTable.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "taskCell")
+        tasksTable.reloadData()
     }
-  }
-  // MARK: View lifecycle
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    tasks = realm.objects(Task.self).map({ $0 })
-    setupTopBars()
-    interactor?.makeRequest(request: ViewTasks.GetUserInfo.Request.RequestType.getUser)
-    tasksTable.dataSource = self
-    tasksTable.delegate = self
-    tasksTable.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "taskCell")
-    refresh()
-    tasksTable.reloadData()
-  }
     
     @IBAction func addNewTask(_ sender: Any) {
-        guard let vc = storyboard?.instantiateViewController(identifier: "CreateTaskViewController") as? CreateTaskViewController else {
-            return
-        }
-        self.navigationController?.pushViewController(vc, animated: true)
-        vc.compleationHandler = { [weak self] in
+        let createVC: CreateTaskViewController = CreateTaskViewController.loadFromStoryboard()
+        self.navigationController?.pushViewController(createVC, animated: true)
+        createVC.compleationHandler = { [weak self] in
             self?.refresh()
         }
     }
@@ -89,15 +69,6 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
         tasks = realm.objects(Task.self).map({ $0 })
         tasksTable.reloadData()
     }
-  // MARK: Do something
-  func doSomething() {
-    let request = ViewTasks.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: ViewTasks.Something.ViewModel) {
-    //nameTextField.text = viewModel.name
-  }
     
     private func setupTopBars() {
         let topBar = UIView(frame: UIApplication.shared.statusBarFrame)
@@ -117,7 +88,7 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: Log out session delegate
     func buttonLogOutSession(sender: UIButton) {
         // swiftlint:disable force_cast
-        let authViewController:AuthorizeUserViewController = UIStoryboard(name: "AuthorizeUser", bundle: nil)
+        let authViewController: AuthorizeUserViewController = UIStoryboard(name: "AuthorizeUser", bundle: nil)
             .instantiateViewController(withIdentifier: "AuthorizeUserViewController") as! AuthorizeUserViewController
         // swiftlint:enable force_cast
         let alert = UIAlertController(title: "Выйти?",
@@ -134,16 +105,18 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
                                         print("\(#function)")
                                         VKSdk.forceLogout()
                                         app.currentUser?.logOut()
+                                        self.navigationController?.navigationBar.isHidden = true
                                         self.navigationController?.pushViewController(authViewController,
-                                                                                      animated: true)
+                                                                                      animated: false)
+                                        self.navigationController?.viewControllers.removeFirst()
         }))
         present(alert, animated: true, completion: nil)
     }
     
-    func displayUserData(viewModel: ViewTasks.GetUserInfo.ViewModel.ViewModelData) {
+    func displayUserData(viewModel: ViewTasks.UserOperations.ViewModel.ViewModelData) {
         switch viewModel {
-            case .displayUser(let userViewModel):
-                titleView.set(userViewModel: userViewModel)
+        case .displayUser(let userViewModel):
+            titleView.set(userViewModel: userViewModel)
         }
     }
 }

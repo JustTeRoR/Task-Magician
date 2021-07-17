@@ -5,13 +5,11 @@
 
 import UIKit
 
-protocol RegisterUserBusinessLogic
-{
+protocol RegisterUserBusinessLogic {
     func registerPersonThroughVK(request: RegisterUser.RegisterUserProcess.Request, authService: AuthService)
 }
 
-protocol RegisterUserDataStore
-{
+protocol RegisterUserDataStore {
   //var name: String { get set }
 }
 

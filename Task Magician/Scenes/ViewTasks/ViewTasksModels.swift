@@ -9,16 +9,8 @@ import UIKit
 
 enum ViewTasks
 {
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request { }
-    struct Response { }
-    struct ViewModel { }
-  }
-    enum GetUserInfo
-    {
+    // MARK: Use cases
+    enum UserOperations {
         struct Request {
             enum RequestType {
                 case getUser
