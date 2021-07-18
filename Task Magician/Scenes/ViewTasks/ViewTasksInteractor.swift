@@ -7,13 +7,11 @@
 
 import UIKit
 
-protocol ViewTasksBusinessLogic
-{
+protocol ViewTasksBusinessLogic {
     func makeRequest(request: ViewTasks.UserOperations.Request.RequestType)
 }
 
-protocol ViewTasksDataStore
-{
+protocol ViewTasksDataStore {
   //var name: String { get set }
 }
 
@@ -22,7 +20,7 @@ class ViewTasksInteractor: ViewTasksBusinessLogic, ViewTasksDataStore {
     var presenter: ViewTasksPresentationLogic?
     var worker: ViewTasksWorker?
     var service: MainService?
-  
+    
     func makeRequest(request: ViewTasks.UserOperations.Request.RequestType) {
         if service == nil {
             service = MainService()

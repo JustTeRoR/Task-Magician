@@ -60,11 +60,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthServiceDelegate {
     
     func authServiceSignIn() {
         print(#function)
-        let mainVC: ViewTasksViewController = ViewTasksViewController.loadFromStoryboard()
-        let navVC = UINavigationController(rootViewController: mainVC)
-        window?.rootViewController = navVC
-        window?.makeKeyAndVisible()
+        // PLEASE FORGIVE ME THIS AWFULL SOLUTION, I WANT TO IMPROVE THIS BUT DONT KNOW HOW
+        // I WILL ASK ABOUT THIS THEN WILL SEND A LETTER ABOUT 2ND WEEK...
+        // I know that this is how we should not do.......
+        if app.currentUser == nil {
+            let service = MainService()
+            service.fetcher.getUser(response: { (user) in
+                let name: AnyBSON = .string(user!.name)
+                let params: Document = ["name": name]
+                app.login(credentials: Credentials.function(payload: params)) { (result) in
+                    switch result {
+                    case .failure(let error):
+                        print("Login failed: \(error.localizedDescription)")
+                    case .success(let user):
+                        print("Successfully logged in as user with id \(user.id)")
+                        user.configuration(partitionValue: "user=\(user.id)")
+                    }
+                    DispatchQueue.main.async {
+                        let mainVC: ViewTasksViewController = ViewTasksViewController.loadFromStoryboard()
+                        let navVC = UINavigationController(rootViewController: mainVC)
+                        self.window?.rootViewController = navVC
+                        self.window?.makeKeyAndVisible()
+                    }
+                }
+            })
+        } else {
+            let mainVC: ViewTasksViewController = ViewTasksViewController.loadFromStoryboard()
+            let navVC = UINavigationController(rootViewController: mainVC)
+            window?.rootViewController = navVC
+            window?.makeKeyAndVisible()
+        }
     }
+    
     func authVC() {
         print(#function)
         let authVC: AuthorizeUserViewController = AuthorizeUserViewController.loadFromStoryboard()
