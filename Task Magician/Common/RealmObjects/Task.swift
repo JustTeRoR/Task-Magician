@@ -28,7 +28,10 @@ class Task: Object {
     @Persisted var name: String = ""
     @Persisted var owner: String?
     @Persisted var status: String = ""
-
+    @Persisted var deadline: Date = Date()
+    @Persisted var taskDescription: String?
+    @Persisted var group: String = ""
+    
     var statusEnum: TaskStatus {
         get {
             return TaskStatus(rawValue: status) ?? .Open
@@ -38,9 +41,24 @@ class Task: Object {
         }
     }
 
-    convenience init(name: String) {
+    var groupEnum: TaskGroup {
+        get {
+            return TaskGroup(rawValue: group) ?? .Private
+        }
+        set {
+            group = newValue.rawValue
+        }
+    }
+    
+    convenience init(name: String, status: TaskStatus, group: TaskGroup,
+                     description: String?, owner: String?, deadline: Date) {
         self.init()
         self.name = name
+        self.status = status.rawValue
+        self.group = group.rawValue
+        self.taskDescription = description
+        self.owner = owner
+        self.deadline = deadline
     }
 }
 

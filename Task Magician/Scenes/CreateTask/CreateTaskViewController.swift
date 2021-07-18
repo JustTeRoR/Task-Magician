@@ -13,6 +13,7 @@ class CreateTaskViewController: UIViewController {
     @IBOutlet weak var descriptionInputText: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var groupPicker: UIPickerView!
+    @IBOutlet weak var scrollView: UIScrollView!
     // swiftlint:disable force_try
     var realm: Realm!
     public var compleationHandler: (() -> Void)?
@@ -38,19 +39,10 @@ class CreateTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.systemGroupedBackground
+        navigationController?.navigationBar.tintColor = UIColor.black
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.btnCreateNewTask))
         self.navigationItem.rightBarButtonItem = saveButton
         setUpPickerView()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        makeNavigationBarClear()
-        navigationController?.navigationBar.tintColor = UIColor.black
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        restoreDefaultNavigationBar()
     }
     
     @objc func btnCreateNewTask() {
