@@ -19,6 +19,9 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
     // swiftlint:disable force_try
     var realm: Realm!
     @IBOutlet weak var tasksTable: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var filterButton: UIBarButtonItem!
+    
     private lazy var titleView = TitleView()
     var tasks = [Task]()
     // MARK: Object lifecycle
@@ -32,7 +35,7 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
         setup()
     }
 
-  // MARK: Setup
+    // MARK: Setup
     private func setup() {
         let viewController = self
         let interactor = ViewTasksInteractor()
@@ -64,6 +67,14 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
         createVC.compleationHandler = { [weak self] in
             self?.refresh()
         }
+    }
+    
+    @IBAction func filterButtonClicked(_ sender: Any) {
+        print("filtering")
+        let slideVC = FilterView()
+        slideVC.modalPresentationStyle = .custom
+        slideVC.transitioningDelegate = self
+        self.present(slideVC, animated: true, completion: nil)
     }
     func refresh() {
         tasks = realm.objects(Task.self).map({ $0 })
@@ -118,5 +129,11 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
         case .displayUser(let userViewModel):
             titleView.set(userViewModel: userViewModel)
         }
+    }
+}
+
+extension ViewTasksViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        FilterPresentationController(presentedViewController: presented, presenting: presenting)
     }
 }

@@ -25,6 +25,12 @@
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem id="o4W-5f-fiw">
+                                        <barButtonItem key="leftBarButtonItem" title="Filter" id="5Mb-AR-Zql">
+                                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="100" maxX="0.0" maxY="-10"/>
+                                            <connections>
+                                                <action selector="filterButtonClicked:" destination="Y6W-OH-hqX" id="ZWw-Nq-Cic"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6D1-h4-rLM">
                                             <inset key="largeContentSizeImageInsets" minX="0.0" minY="100" maxX="0.0" maxY="-10"/>
                                             <connections>
@@ -34,21 +40,30 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="StR-Iq-ij5">
+                                <rect key="frame" x="70" y="63" width="294" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ScZ-WY-5tZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="2Up-l7-M1X"/>
+                            <constraint firstItem="StR-Iq-ij5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="70" id="2gV-PV-nBA"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ScZ-WY-5tZ" secondAttribute="bottom" id="37O-Y0-DY6"/>
                             <constraint firstItem="oCK-3H-6gp" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="6VA-MW-Rwf"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ScZ-WY-5tZ" secondAttribute="trailing" id="MxZ-8P-QcI"/>
                             <constraint firstItem="oCK-3H-6gp" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Pxc-ON-AF9"/>
+                            <constraint firstItem="ScZ-WY-5tZ" firstAttribute="top" secondItem="StR-Iq-ij5" secondAttribute="bottom" constant="-5" id="e8Q-Uz-Tgo"/>
                             <constraint firstItem="oCK-3H-6gp" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="65" id="hq7-kO-BBU"/>
                             <constraint firstItem="ScZ-WY-5tZ" firstAttribute="top" secondItem="oCK-3H-6gp" secondAttribute="bottom" id="kJT-FW-Mbz"/>
                             <constraint firstItem="oCK-3H-6gp" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="qH0-5P-3T9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="StR-Iq-ij5" secondAttribute="trailing" constant="50" id="qxz-jJ-Chi"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="filterButton" destination="5Mb-AR-Zql" id="wQp-Ol-bSh"/>
+                        <outlet property="searchBar" destination="StR-Iq-ij5" id="mZr-Tr-DXj"/>
                         <outlet property="tasksTable" destination="ScZ-WY-5tZ" id="r6X-GW-5r2"/>
                     </connections>
                 </viewController>

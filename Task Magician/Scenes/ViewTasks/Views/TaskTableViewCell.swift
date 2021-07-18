@@ -54,8 +54,4 @@ class TaskTableViewCell: UITableViewCell {
         completeButton.setBackgroundImage(UIImage(systemName: "checkmark.seal.fill"), for: .normal)
         callback?()
     }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-    }
 }

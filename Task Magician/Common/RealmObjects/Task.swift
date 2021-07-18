@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 // swiftlint:disable identifier_name
-enum TaskStatus: String {
+enum TaskStatus: String, CaseIterable {
     case Open = "Не начато"
     case InProgress = "В процессе"
     case OnHold = "На удерживании"
