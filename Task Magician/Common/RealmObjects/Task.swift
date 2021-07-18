@@ -10,10 +10,10 @@ import RealmSwift
 
 // swiftlint:disable identifier_name
 enum TaskStatus: String {
-    case Open = "Open"
-    case InProgress = "In Progress"
-    case OnHold = "On Hold"
-    case Completed = "Completed"
+    case Open = "Не начато"
+    case InProgress = "В процессе"
+    case OnHold = "На удерживании"
+    case Completed = "Выполнено"
 }
 
 enum TaskGroup: String, CaseIterable {
@@ -31,6 +31,7 @@ class Task: Object {
     @Persisted var deadline: Date = Date()
     @Persisted var taskDescription: String?
     @Persisted var group: String = ""
+    @Persisted var isCompleted: Bool = false
     
     var statusEnum: TaskStatus {
         get {

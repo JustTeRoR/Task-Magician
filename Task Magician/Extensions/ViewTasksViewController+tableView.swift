@@ -13,13 +13,22 @@ extension ViewTasksViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 125
+        return 145
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
         let model = tasks[indexPath.row]
         cell.commonInit(taskModel: model)
+        // swiftlint:disable force_try
+        cell.callback = { () in
+            try! self.realm.write {
+                model.status = TaskStatus.Completed.rawValue
+                model.isCompleted = true
+                self.tasksTable.reloadData()
+            }
+        }
+        // swiftlint:enable force_try
         return cell
     }
     

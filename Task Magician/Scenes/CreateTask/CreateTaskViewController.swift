@@ -13,7 +13,6 @@ class CreateTaskViewController: UIViewController {
     @IBOutlet weak var descriptionInputText: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var groupPicker: UIPickerView!
-    @IBOutlet weak var scrollView: UIScrollView!
     // swiftlint:disable force_try
     var realm: Realm!
     public var compleationHandler: (() -> Void)?
@@ -48,9 +47,10 @@ class CreateTaskViewController: UIViewController {
     @objc func btnCreateNewTask() {
         if let text = titleInputText.text, !text.isEmpty {
             let date = datePicker.date
-            let newTask = Task()
-            newTask.name = text
-            newTask.owner = app.currentUser?.id
+            let taskGroup = TaskGroup.allCases[groupPicker.selectedRow(inComponent: 0)]
+            let taskDescription = descriptionInputText.text ?? ""
+            let newTask = Task(name: text, status: .Open, group: taskGroup,
+                               description: taskDescription, owner: app.currentUser?.id, deadline: date)
             // swiftlint:disable force_try
             try!self.realm.write {
                 self.realm.add(newTask)
