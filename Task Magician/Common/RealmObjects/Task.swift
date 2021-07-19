@@ -32,6 +32,7 @@ class Task: Object {
     @Persisted var taskDescription: String?
     @Persisted var group: String = ""
     @Persisted var isCompleted: Bool = false
+    @Persisted var listOfSubtasks: RealmSwift.List<Subtask>
     
     var statusEnum: TaskStatus {
         get {

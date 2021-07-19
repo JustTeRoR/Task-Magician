@@ -51,6 +51,9 @@ class CreateTaskViewController: UIViewController {
             let taskDescription = descriptionInputText.text ?? ""
             let newTask = Task(name: text, status: .Open, group: taskGroup,
                                description: taskDescription, owner: app.currentUser?.id, deadline: date)
+            // let subtaskTest = Subtask(name: "Here is one more thing to do", owner: app.currentUser?.id)
+            // newTask.listOfSubtasks.append(subtaskTest)
+            
             // swiftlint:disable force_try
             try!self.realm.write {
                 self.realm.add(newTask)

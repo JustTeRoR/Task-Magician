@@ -13,6 +13,7 @@
 		80AD138526A49EC2000BBCB3 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD138326A49EC2000BBCB3 /* FilterView.swift */; };
 		80AD138626A49EC2000BBCB3 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80AD138426A49EC2000BBCB3 /* FilterView.xib */; };
 		80AD138826A4A107000BBCB3 /* FilterPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD138726A4A107000BBCB3 /* FilterPresentationController.swift */; };
+		80AD138A26A589F5000BBCB3 /* Subtask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD138926A589F5000BBCB3 /* Subtask.swift */; };
 		80D8EA5D269C47DC003BAA18 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA57269C47DC003BAA18 /* CreateTaskViewController.swift */; };
 		80D8EA64269C4D84003BAA18 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA63269C4D84003BAA18 /* User.swift */; };
 		80D8EA6C269C6036003BAA18 /* AuthorizeUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA66269C6036003BAA18 /* AuthorizeUserWorker.swift */; };
@@ -69,6 +70,7 @@
 		80AD138326A49EC2000BBCB3 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		80AD138426A49EC2000BBCB3 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
 		80AD138726A4A107000BBCB3 /* FilterPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPresentationController.swift; sourceTree = "<group>"; };
+		80AD138926A589F5000BBCB3 /* Subtask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subtask.swift; sourceTree = "<group>"; };
 		80D8EA57269C47DC003BAA18 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		80D8EA63269C4D84003BAA18 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		80D8EA66269C6036003BAA18 /* AuthorizeUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeUserWorker.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			children = (
 				80D8EA63269C4D84003BAA18 /* User.swift */,
 				80D8EAC026A1AF09003BAA18 /* Task.swift */,
+				80AD138926A589F5000BBCB3 /* Subtask.swift */,
 			);
 			path = RealmObjects;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				80D8EA97269CEB0E003BAA18 /* UIViewController+loadFromStoryboard.swift in Sources */,
 				80D8EAC626A1C991003BAA18 /* TaskTableViewCell.swift in Sources */,
 				80AD137E26A4444F000BBCB3 /* UITableViewCell+configureCommonLabels.swift in Sources */,
+				80AD138A26A589F5000BBCB3 /* Subtask.swift in Sources */,
 				80D8EAC326A1C901003BAA18 /* ViewTasksViewController+tableView.swift in Sources */,
 				80D8EAA1269CEBF2003BAA18 /* ViewTasksWorker.swift in Sources */,
 				80D8EA81269CA854003BAA18 /* RegisterUserViewController.swift in Sources */,
