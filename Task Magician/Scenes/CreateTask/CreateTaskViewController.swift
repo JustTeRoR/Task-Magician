@@ -13,7 +13,11 @@ class CreateTaskViewController: UIViewController {
     @IBOutlet weak var descriptionInputText: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var groupPicker: UIPickerView!
+    @IBOutlet weak var subtasksTable: UITableView!
+    @IBOutlet weak var subtaskInputText: UITextField!
+    @IBOutlet weak var createSubtaskButton: UIButton!
     // swiftlint:disable force_try
+    var subtasksForNewTask = [Subtask]()
     var realm: Realm!
     public var compleationHandler: (() -> Void)?
     // MARK: Object lifecycle
@@ -42,8 +46,20 @@ class CreateTaskViewController: UIViewController {
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.btnCreateNewTask))
         self.navigationItem.rightBarButtonItem = saveButton
         setUpPickerView()
+        createCommonButton(button: createSubtaskButton, titleColor: UIColor.white, backgroundColor: UIColor.black, title: "Добавить подзадачу")
+        subtasksTable.dataSource = self
+        subtasksTable.delegate = self
+        subtasksTable.register(UINib(nibName: "SubtaskTableViewCell", bundle: nil), forCellReuseIdentifier: "subtaskCell")
     }
     
+    @IBAction func createNewSubtaskButtonClicked(_ sender: Any) {
+        if let text = subtaskInputText.text, !text.isEmpty {
+            subtasksForNewTask.append(Subtask(name: text, owner: app.currentUser?.id))
+            subtasksTable.reloadData()
+        } else {
+            print("Add something to subtask name")
+        }
+    }
     @objc func btnCreateNewTask() {
         if let text = titleInputText.text, !text.isEmpty {
             let date = datePicker.date
@@ -51,9 +67,9 @@ class CreateTaskViewController: UIViewController {
             let taskDescription = descriptionInputText.text ?? ""
             let newTask = Task(name: text, status: .Open, group: taskGroup,
                                description: taskDescription, owner: app.currentUser?.id, deadline: date)
-            // let subtaskTest = Subtask(name: "Here is one more thing to do", owner: app.currentUser?.id)
-            // newTask.listOfSubtasks.append(subtaskTest)
-            
+            for subtask in subtasksForNewTask {
+                newTask.listOfSubtasks.append(subtask)
+            }
             // swiftlint:disable force_try
             try!self.realm.write {
                 self.realm.add(newTask)

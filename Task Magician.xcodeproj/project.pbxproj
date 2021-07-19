@@ -14,6 +14,9 @@
 		80AD138626A49EC2000BBCB3 /* FilterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80AD138426A49EC2000BBCB3 /* FilterView.xib */; };
 		80AD138826A4A107000BBCB3 /* FilterPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD138726A4A107000BBCB3 /* FilterPresentationController.swift */; };
 		80AD138A26A589F5000BBCB3 /* Subtask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD138926A589F5000BBCB3 /* Subtask.swift */; };
+		80AD139026A59E8C000BBCB3 /* SubtaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD138E26A59E8C000BBCB3 /* SubtaskTableViewCell.swift */; };
+		80AD139126A59E8C000BBCB3 /* SubtaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80AD138F26A59E8C000BBCB3 /* SubtaskTableViewCell.xib */; };
+		80AD139326A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD139226A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift */; };
 		80D8EA5D269C47DC003BAA18 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA57269C47DC003BAA18 /* CreateTaskViewController.swift */; };
 		80D8EA64269C4D84003BAA18 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA63269C4D84003BAA18 /* User.swift */; };
 		80D8EA6C269C6036003BAA18 /* AuthorizeUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA66269C6036003BAA18 /* AuthorizeUserWorker.swift */; };
@@ -71,6 +74,9 @@
 		80AD138426A49EC2000BBCB3 /* FilterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterView.xib; sourceTree = "<group>"; };
 		80AD138726A4A107000BBCB3 /* FilterPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPresentationController.swift; sourceTree = "<group>"; };
 		80AD138926A589F5000BBCB3 /* Subtask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subtask.swift; sourceTree = "<group>"; };
+		80AD138E26A59E8C000BBCB3 /* SubtaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtaskTableViewCell.swift; sourceTree = "<group>"; };
+		80AD138F26A59E8C000BBCB3 /* SubtaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubtaskTableViewCell.xib; sourceTree = "<group>"; };
+		80AD139226A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateSubtaskViewController+tableView.swift"; sourceTree = "<group>"; };
 		80D8EA57269C47DC003BAA18 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		80D8EA63269C4D84003BAA18 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		80D8EA66269C6036003BAA18 /* AuthorizeUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeUserWorker.swift; sourceTree = "<group>"; };
@@ -167,6 +173,15 @@
 			path = "Task Magician";
 			sourceTree = "<group>";
 		};
+		80AD138D26A59E55000BBCB3 /* SharedViews */ = {
+			isa = PBXGroup;
+			children = (
+				80AD138E26A59E8C000BBCB3 /* SubtaskTableViewCell.swift */,
+				80AD138F26A59E8C000BBCB3 /* SubtaskTableViewCell.xib */,
+			);
+			path = SharedViews;
+			sourceTree = "<group>";
+		};
 		80D8EA51269B01DB003BAA18 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +233,7 @@
 		80D8EA61269C4D6F003BAA18 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				80AD138D26A59E55000BBCB3 /* SharedViews */,
 				80D8EABD26A18F1C003BAA18 /* RealmObjects */,
 				80D8EA88269CDCAC003BAA18 /* Services */,
 				80D8EA62269C4D76003BAA18 /* User */,
@@ -270,6 +286,7 @@
 				80D8EAC226A1C901003BAA18 /* ViewTasksViewController+tableView.swift */,
 				80D8EACE26A34B0B003BAA18 /* UIViewController+NavigationBar.swift */,
 				80D8EAD026A37319003BAA18 /* CreateTaskViewController+picker.swift */,
+				80AD139226A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift */,
 				80AD137D26A4444F000BBCB3 /* UITableViewCell+configureCommonLabels.swift */,
 			);
 			path = Extensions;
@@ -369,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80AD138626A49EC2000BBCB3 /* FilterView.xib in Resources */,
+				80AD139126A59E8C000BBCB3 /* SubtaskTableViewCell.xib in Resources */,
 				80D8EAC726A1C991003BAA18 /* TaskTableViewCell.xib in Resources */,
 				80D8EA87269CDBAA003BAA18 /* ViewTasks.storyboard in Resources */,
 				80D8EA72269C60B4003BAA18 /* AuthorizeUser.storyboard in Resources */,
@@ -449,6 +467,7 @@
 				80D8EA80269CA854003BAA18 /* RegisterUserModels.swift in Sources */,
 				80D8EAA5269CEBF2003BAA18 /* ViewTasksInteractor.swift in Sources */,
 				80D8EA6E269C6036003BAA18 /* AuthorizeUserModels.swift in Sources */,
+				80AD139326A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift in Sources */,
 				80D8EAA7269CEFD8003BAA18 /* String+subscript.swift in Sources */,
 				80D8EAA926A0630E003BAA18 /* AuthorizePresentationController.swift in Sources */,
 				80D8EAA0269CEBF2003BAA18 /* ViewTasksPresenter.swift in Sources */,
@@ -470,6 +489,7 @@
 				80D8EAB726A07FBB003BAA18 /* WebImageView.swift in Sources */,
 				80D8EA92269CDF1F003BAA18 /* NetworkDataFetcher.swift in Sources */,
 				80D8EAA4269CEBF2003BAA18 /* ViewTasksViewController.swift in Sources */,
+				80AD139026A59E8C000BBCB3 /* SubtaskTableViewCell.swift in Sources */,
 				80D8EA7E269CA854003BAA18 /* RegisterUserWorker.swift in Sources */,
 				80D8EACF26A34B0B003BAA18 /* UIViewController+NavigationBar.swift in Sources */,
 				80D8EA8A269CDCC1003BAA18 /* API.swift in Sources */,
