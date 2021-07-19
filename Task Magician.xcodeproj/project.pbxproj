@@ -17,6 +17,7 @@
 		80AD139026A59E8C000BBCB3 /* SubtaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD138E26A59E8C000BBCB3 /* SubtaskTableViewCell.swift */; };
 		80AD139126A59E8C000BBCB3 /* SubtaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80AD138F26A59E8C000BBCB3 /* SubtaskTableViewCell.xib */; };
 		80AD139326A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD139226A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift */; };
+		80AD139526A5B41E000BBCB3 /* TaskTableViewCell+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD139426A5B41E000BBCB3 /* TaskTableViewCell+tableView.swift */; };
 		80D8EA5D269C47DC003BAA18 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA57269C47DC003BAA18 /* CreateTaskViewController.swift */; };
 		80D8EA64269C4D84003BAA18 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA63269C4D84003BAA18 /* User.swift */; };
 		80D8EA6C269C6036003BAA18 /* AuthorizeUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA66269C6036003BAA18 /* AuthorizeUserWorker.swift */; };
@@ -77,6 +78,7 @@
 		80AD138E26A59E8C000BBCB3 /* SubtaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtaskTableViewCell.swift; sourceTree = "<group>"; };
 		80AD138F26A59E8C000BBCB3 /* SubtaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubtaskTableViewCell.xib; sourceTree = "<group>"; };
 		80AD139226A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateSubtaskViewController+tableView.swift"; sourceTree = "<group>"; };
+		80AD139426A5B41E000BBCB3 /* TaskTableViewCell+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskTableViewCell+tableView.swift"; sourceTree = "<group>"; };
 		80D8EA57269C47DC003BAA18 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		80D8EA63269C4D84003BAA18 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		80D8EA66269C6036003BAA18 /* AuthorizeUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeUserWorker.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				80D8EAD026A37319003BAA18 /* CreateTaskViewController+picker.swift */,
 				80AD139226A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift */,
 				80AD137D26A4444F000BBCB3 /* UITableViewCell+configureCommonLabels.swift */,
+				80AD139426A5B41E000BBCB3 /* TaskTableViewCell+tableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				80D8EA8E269CDDFE003BAA18 /* AuthService.swift in Sources */,
 				805EB6952699EB1D001CB66E /* AppDelegate.swift in Sources */,
 				80D8EA97269CEB0E003BAA18 /* UIViewController+loadFromStoryboard.swift in Sources */,
+				80AD139526A5B41E000BBCB3 /* TaskTableViewCell+tableView.swift in Sources */,
 				80D8EAC626A1C991003BAA18 /* TaskTableViewCell.swift in Sources */,
 				80AD137E26A4444F000BBCB3 /* UITableViewCell+configureCommonLabels.swift in Sources */,
 				80AD138A26A589F5000BBCB3 /* Subtask.swift in Sources */,

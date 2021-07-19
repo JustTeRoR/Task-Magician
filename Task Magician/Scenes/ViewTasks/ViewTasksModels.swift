@@ -7,8 +7,7 @@
 
 import UIKit
 
-enum ViewTasks
-{
+enum ViewTasks {
     // MARK: Use cases
     enum UserOperations {
         struct Request {

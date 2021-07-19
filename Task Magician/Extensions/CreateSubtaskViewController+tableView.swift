@@ -7,7 +7,7 @@
 
 import UIKit
 // swiftlint:disable force_cast
-extension CreateTaskViewController: UITableViewDelegate, UITableViewDataSource{
+extension CreateTaskViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subtasksForNewTask.count
     }

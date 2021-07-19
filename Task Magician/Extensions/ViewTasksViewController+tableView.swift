@@ -13,7 +13,7 @@ extension ViewTasksViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 145
+        return tasks[indexPath.row].listOfSubtasks.count != 0 ? 250 : 145
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -25,6 +25,12 @@ extension ViewTasksViewController {
             try! self.realm.write {
                 model.status = TaskStatus.Completed.rawValue
                 model.isCompleted = true
+                self.tasksTable.reloadData()
+            }
+        }
+        cell.callbackForDeleteSubtask = { (subtaskIndex) in
+            try! self.realm.write {
+                model.listOfSubtasks.remove(at: subtaskIndex)
                 self.tasksTable.reloadData()
             }
         }

@@ -11,7 +11,7 @@ class SubtaskTableViewCell: UITableViewCell {
 
     @IBOutlet weak var comletionButton: UIButton!
     @IBOutlet weak var subtaskName: UILabel!
-    var callback: (() -> Void)?
+    var callbackForCompletion: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +28,7 @@ class SubtaskTableViewCell: UITableViewCell {
             comletionButton.isEnabled = false
         } else {
             comletionButton.setBackgroundImage(UIImage(systemName: "checkmark.seal"), for: .normal)
-            if isActiveCell {
+            if isActiveCell && !subtaskModel.isCompleted {
                 comletionButton.isEnabled = true
             } else {
                 comletionButton.isEnabled = false
@@ -36,9 +36,9 @@ class SubtaskTableViewCell: UITableViewCell {
             
         }
     }
-    
+        
     @IBAction func completedButtonClicked(_ sender: Any) {
         comletionButton.setBackgroundImage(UIImage(systemName: "checkmark.seal.fill"), for: .normal)
-        callback?()
+        callbackForCompletion?()
     }
 }
