@@ -24,6 +24,8 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
     
     private lazy var titleView = TitleView()
     var tasks = [Task]()
+    var searchedTasks = [Task]()
+    var searching = false
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -54,6 +56,7 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         tasks = realm.objects(Task.self).map({ $0 })
         setupTopBars()
+        searchBar.delegate = self
         interactor?.makeRequest(request: ViewTasks.UserOperations.Request.RequestType.getUser)
         tasksTable.dataSource = self
         tasksTable.delegate = self

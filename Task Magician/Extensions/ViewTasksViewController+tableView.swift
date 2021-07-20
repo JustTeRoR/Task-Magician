@@ -9,7 +9,11 @@ import UIKit
 // swiftlint:disable force_cast
 extension ViewTasksViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        if !searching {
+            return tasks.count
+        } else {
+            return searchedTasks.count
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -18,28 +22,56 @@ extension ViewTasksViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
-        let model = tasks[indexPath.row]
-        cell.commonInit(taskModel: model)
-        // swiftlint:disable force_try
-        cell.callback = { () in
-            try! self.realm.write {
-                model.status = TaskStatus.Completed.rawValue
-                model.isCompleted = true
-                self.tasksTable.reloadData()
+        
+        if !searching {
+            let model = tasks[indexPath.row]
+            cell.commonInit(taskModel: model)
+            // swiftlint:disable force_try
+            cell.callback = { () in
+                try! self.realm.write {
+                    model.status = TaskStatus.Completed.rawValue
+                    model.isCompleted = true
+                    self.tasksTable.reloadData()
+                }
             }
-        }
-        cell.callbackForDeleteSubtask = { (subtaskIndex) in
-            try! self.realm.write {
-                model.listOfSubtasks.remove(at: subtaskIndex)
-                self.tasksTable.reloadData()
+            cell.callbackForDeleteSubtask = { (subtaskIndex) in
+                try! self.realm.write {
+                    model.listOfSubtasks.remove(at: subtaskIndex)
+                    self.tasksTable.reloadData()
+                }
             }
-        }
-        cell.callbackForEditingTask = { () in
-            let editVC: EditTaskViewController = EditTaskViewController.loadFromStoryboard()
-            editVC.taskToChange = self.tasks[indexPath.row]
-            self.navigationController?.pushViewController(editVC, animated: true)
-            editVC.compleationHandler = { [weak self] in
-                self?.refresh()
+            cell.callbackForEditingTask = { () in
+                let editVC: EditTaskViewController = EditTaskViewController.loadFromStoryboard()
+                editVC.taskToChange = self.tasks[indexPath.row]
+                self.navigationController?.pushViewController(editVC, animated: true)
+                editVC.compleationHandler = { [weak self] in
+                    self?.refresh()
+                }
+            }
+        } else {
+            let model = searchedTasks[indexPath.row]
+            cell.commonInit(taskModel: model)
+            // swiftlint:disable force_try
+            cell.callback = { () in
+                try! self.realm.write {
+                    model.status = TaskStatus.Completed.rawValue
+                    model.isCompleted = true
+                    self.tasksTable.reloadData()
+                }
+            }
+            cell.callbackForDeleteSubtask = { (subtaskIndex) in
+                try! self.realm.write {
+                    model.listOfSubtasks.remove(at: subtaskIndex)
+                    self.tasksTable.reloadData()
+                }
+            }
+            cell.callbackForEditingTask = { () in
+                let editVC: EditTaskViewController = EditTaskViewController.loadFromStoryboard()
+                editVC.taskToChange = self.tasks[indexPath.row]
+                self.navigationController?.pushViewController(editVC, animated: true)
+                editVC.compleationHandler = { [weak self] in
+                    self?.refresh()
+                }
             }
         }
         // swiftlint:enable force_try
