@@ -34,6 +34,14 @@ extension ViewTasksViewController {
                 self.tasksTable.reloadData()
             }
         }
+        cell.callbackForEditingTask = { () in
+            let editVC: EditTaskViewController = EditTaskViewController.loadFromStoryboard()
+            editVC.taskToChange = self.tasks[indexPath.row]
+            self.navigationController?.pushViewController(editVC, animated: true)
+            editVC.compleationHandler = { [weak self] in
+                self?.refresh()
+            }
+        }
         // swiftlint:enable force_try
         return cell
     }

@@ -18,6 +18,11 @@
 		80AD139126A59E8C000BBCB3 /* SubtaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80AD138F26A59E8C000BBCB3 /* SubtaskTableViewCell.xib */; };
 		80AD139326A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD139226A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift */; };
 		80AD139526A5B41E000BBCB3 /* TaskTableViewCell+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD139426A5B41E000BBCB3 /* TaskTableViewCell+tableView.swift */; };
+		80AD139826A5CD38000BBCB3 /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD139726A5CD38000BBCB3 /* EditTaskViewController.swift */; };
+		80AD139A26A5CE28000BBCB3 /* EditTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80AD139926A5CE28000BBCB3 /* EditTask.storyboard */; };
+		80AD139C26A5D140000BBCB3 /* EditTask+picker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD139B26A5D140000BBCB3 /* EditTask+picker.swift */; };
+		80AD139E26A5D20F000BBCB3 /* EditTask+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD139D26A5D20F000BBCB3 /* EditTask+tableView.swift */; };
+		80AD13A026A6E908000BBCB3 /* Object+DetachableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AD139F26A6E908000BBCB3 /* Object+DetachableObject.swift */; };
 		80D8EA5D269C47DC003BAA18 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA57269C47DC003BAA18 /* CreateTaskViewController.swift */; };
 		80D8EA64269C4D84003BAA18 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA63269C4D84003BAA18 /* User.swift */; };
 		80D8EA6C269C6036003BAA18 /* AuthorizeUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D8EA66269C6036003BAA18 /* AuthorizeUserWorker.swift */; };
@@ -79,6 +84,11 @@
 		80AD138F26A59E8C000BBCB3 /* SubtaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubtaskTableViewCell.xib; sourceTree = "<group>"; };
 		80AD139226A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateSubtaskViewController+tableView.swift"; sourceTree = "<group>"; };
 		80AD139426A5B41E000BBCB3 /* TaskTableViewCell+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskTableViewCell+tableView.swift"; sourceTree = "<group>"; };
+		80AD139726A5CD38000BBCB3 /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
+		80AD139926A5CE28000BBCB3 /* EditTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditTask.storyboard; sourceTree = "<group>"; };
+		80AD139B26A5D140000BBCB3 /* EditTask+picker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditTask+picker.swift"; sourceTree = "<group>"; };
+		80AD139D26A5D20F000BBCB3 /* EditTask+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditTask+tableView.swift"; sourceTree = "<group>"; };
+		80AD139F26A6E908000BBCB3 /* Object+DetachableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object+DetachableObject.swift"; sourceTree = "<group>"; };
 		80D8EA57269C47DC003BAA18 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		80D8EA63269C4D84003BAA18 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		80D8EA66269C6036003BAA18 /* AuthorizeUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeUserWorker.swift; sourceTree = "<group>"; };
@@ -184,6 +194,15 @@
 			path = SharedViews;
 			sourceTree = "<group>";
 		};
+		80AD139626A5CCE1000BBCB3 /* EditTask */ = {
+			isa = PBXGroup;
+			children = (
+				80AD139726A5CD38000BBCB3 /* EditTaskViewController.swift */,
+				80AD139926A5CE28000BBCB3 /* EditTask.storyboard */,
+			);
+			path = EditTask;
+			sourceTree = "<group>";
+		};
 		80D8EA51269B01DB003BAA18 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +210,7 @@
 				80D8EA60269C4CBA003BAA18 /* AuthorizeUser */,
 				80D8EA5F269C4CA6003BAA18 /* RegisterUser */,
 				80D8EA52269B01E7003BAA18 /* CreateTask */,
+				80AD139626A5CCE1000BBCB3 /* EditTask */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -291,6 +311,9 @@
 				80AD139226A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift */,
 				80AD137D26A4444F000BBCB3 /* UITableViewCell+configureCommonLabels.swift */,
 				80AD139426A5B41E000BBCB3 /* TaskTableViewCell+tableView.swift */,
+				80AD139B26A5D140000BBCB3 /* EditTask+picker.swift */,
+				80AD139D26A5D20F000BBCB3 /* EditTask+tableView.swift */,
+				80AD139F26A6E908000BBCB3 /* Object+DetachableObject.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -391,6 +414,7 @@
 				80AD138626A49EC2000BBCB3 /* FilterView.xib in Resources */,
 				80AD139126A59E8C000BBCB3 /* SubtaskTableViewCell.xib in Resources */,
 				80D8EAC726A1C991003BAA18 /* TaskTableViewCell.xib in Resources */,
+				80AD139A26A5CE28000BBCB3 /* EditTask.storyboard in Resources */,
 				80D8EA87269CDBAA003BAA18 /* ViewTasks.storyboard in Resources */,
 				80D8EA72269C60B4003BAA18 /* AuthorizeUser.storyboard in Resources */,
 				80D8EAAB26A06449003BAA18 /* AuthorizeView.xib in Resources */,
@@ -472,6 +496,7 @@
 				80D8EA6E269C6036003BAA18 /* AuthorizeUserModels.swift in Sources */,
 				80AD139326A5A4BC000BBCB3 /* CreateSubtaskViewController+tableView.swift in Sources */,
 				80D8EAA7269CEFD8003BAA18 /* String+subscript.swift in Sources */,
+				80AD139E26A5D20F000BBCB3 /* EditTask+tableView.swift in Sources */,
 				80D8EAA926A0630E003BAA18 /* AuthorizePresentationController.swift in Sources */,
 				80D8EAA0269CEBF2003BAA18 /* ViewTasksPresenter.swift in Sources */,
 				80D8EAB026A06768003BAA18 /* UIViewController+createCommonButton.swift in Sources */,
@@ -488,12 +513,14 @@
 				80D8EA8C269CDD88003BAA18 /* UserResponse.swift in Sources */,
 				80D8EAD126A37319003BAA18 /* CreateTaskViewController+picker.swift in Sources */,
 				80D8EAB226A070DB003BAA18 /* AuthorizeView.swift in Sources */,
+				80AD139C26A5D140000BBCB3 /* EditTask+picker.swift in Sources */,
 				80D8EA94269CE070003BAA18 /* MainService.swift in Sources */,
 				80D8EABB26A08068003BAA18 /* UiView+constraints.swift in Sources */,
 				80D8EAB726A07FBB003BAA18 /* WebImageView.swift in Sources */,
 				80D8EA92269CDF1F003BAA18 /* NetworkDataFetcher.swift in Sources */,
 				80D8EAA4269CEBF2003BAA18 /* ViewTasksViewController.swift in Sources */,
 				80AD139026A59E8C000BBCB3 /* SubtaskTableViewCell.swift in Sources */,
+				80AD13A026A6E908000BBCB3 /* Object+DetachableObject.swift in Sources */,
 				80D8EA7E269CA854003BAA18 /* RegisterUserWorker.swift in Sources */,
 				80D8EACF26A34B0B003BAA18 /* UIViewController+NavigationBar.swift in Sources */,
 				80D8EA8A269CDCC1003BAA18 /* API.swift in Sources */,
@@ -503,6 +530,7 @@
 				80D8EAAD26A06558003BAA18 /* UIVIewController+createVkButton.swift in Sources */,
 				80D8EAC126A1AF09003BAA18 /* Task.swift in Sources */,
 				80D8EA6F269C6036003BAA18 /* AuthorizeUserViewController.swift in Sources */,
+				80AD139826A5CD38000BBCB3 /* EditTaskViewController.swift in Sources */,
 				80D8EA70269C6036003BAA18 /* AuthorizeUserInteractor.swift in Sources */,
 				80D8EA64269C4D84003BAA18 /* User.swift in Sources */,
 				80D8EA90269CDEC0003BAA18 /* NetworkService.swift in Sources */,
