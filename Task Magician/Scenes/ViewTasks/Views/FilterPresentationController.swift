@@ -8,6 +8,7 @@
 import UIKit
 
 class FilterPresentationController: UIPresentationController {
+    
     let blurEffectView: UIVisualEffectView!
     var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
   
@@ -22,9 +23,9 @@ class FilterPresentationController: UIPresentationController {
     }
     // Height of modal vindow can be configured with values below
     override var frameOfPresentedViewInContainerView: CGRect {
-        CGRect(origin: CGPoint(x: 0, y: self.containerView!.frame.height * 0.7),
+        CGRect(origin: CGPoint(x: 0, y: self.containerView!.frame.height * 0.32),
                size: CGSize(width: self.containerView!.frame.width, height: self.containerView!.frame.height *
-                                0.3))
+                                0.68))
     }
 
     override func presentationTransitionWillBegin() {
@@ -34,7 +35,6 @@ class FilterPresentationController: UIPresentationController {
         self.blurEffectView.alpha = 0.7
         }, completion: { (UIViewControllerTransitionCoordinatorContext) in })
     }
-  
     override func dismissalTransitionWillBegin() {
         self.presentedViewController.transitionCoordinator?.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) in
             self.blurEffectView.alpha = 0

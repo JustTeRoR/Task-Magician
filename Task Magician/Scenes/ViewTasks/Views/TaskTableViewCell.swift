@@ -43,9 +43,10 @@ class TaskTableViewCell: UITableViewCell {
     func commonInit(taskModel: Task) {
         self.taskModel = taskModel
         if taskModel.listOfSubtasks.count == 0 {
-            //subtaskTable.isHidden = true
-            subtaskTable.removeFromSuperview()
+            subtaskTable.isHidden = true
+            // subtaskTable.removeFromSuperview()
         } else {
+            subtaskTable.isHidden = false
             subtaskTable.dataSource = self
             subtaskTable.delegate = self
             subtaskTable.register(UINib(nibName: "SubtaskTableViewCell", bundle: nil), forCellReuseIdentifier: "subtask_Cell")

@@ -36,7 +36,7 @@ extension UITableViewCell {
         case .Private:
             label.backgroundColor = UIColor.systemPink
         case .Work:
-            label.backgroundColor = UIColor.red
+            label.backgroundColor = UIColor.brown
         case .Assignments:
             label.backgroundColor = UIColor.systemGreen
         case .Shopping:

@@ -9,8 +9,12 @@ import UIKit
 // swiftlint:disable force_cast
 extension ViewTasksViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if !searching {
+        if !searching && !filtering {
             return tasks.count
+        } else if !searching {
+            return filteredTasks.count
+        } else if searching && filtering{
+            return filteredTasks.count
         } else {
             return searchedTasks.count
         }
@@ -22,56 +26,37 @@ extension ViewTasksViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
-        
-        if !searching {
-            let model = tasks[indexPath.row]
-            cell.commonInit(taskModel: model)
-            // swiftlint:disable force_try
-            cell.callback = { () in
-                try! self.realm.write {
-                    model.status = TaskStatus.Completed.rawValue
-                    model.isCompleted = true
-                    self.tasksTable.reloadData()
-                }
-            }
-            cell.callbackForDeleteSubtask = { (subtaskIndex) in
-                try! self.realm.write {
-                    model.listOfSubtasks.remove(at: subtaskIndex)
-                    self.tasksTable.reloadData()
-                }
-            }
-            cell.callbackForEditingTask = { () in
-                let editVC: EditTaskViewController = EditTaskViewController.loadFromStoryboard()
-                editVC.taskToChange = self.tasks[indexPath.row]
-                self.navigationController?.pushViewController(editVC, animated: true)
-                editVC.compleationHandler = { [weak self] in
-                    self?.refresh()
-                }
-            }
+        let model: Task
+        if !searching && !filtering {
+            model = tasks[indexPath.row]
+        } else if !searching {
+            model = filteredTasks[indexPath.row]
+        } else if searching && filtering {
+            model = filteredTasks[indexPath.row]
         } else {
-            let model = searchedTasks[indexPath.row]
-            cell.commonInit(taskModel: model)
-            // swiftlint:disable force_try
-            cell.callback = { () in
-                try! self.realm.write {
-                    model.status = TaskStatus.Completed.rawValue
-                    model.isCompleted = true
-                    self.tasksTable.reloadData()
-                }
+            model = searchedTasks[indexPath.row]
+        }
+        cell.commonInit(taskModel: model)
+        // swiftlint:disable force_try
+        cell.callback = { () in
+            try! self.realm.write {
+                model.status = TaskStatus.Completed.rawValue
+                model.isCompleted = true
+                self.tasksTable.reloadData()
             }
-            cell.callbackForDeleteSubtask = { (subtaskIndex) in
-                try! self.realm.write {
-                    model.listOfSubtasks.remove(at: subtaskIndex)
-                    self.tasksTable.reloadData()
-                }
+        }
+        cell.callbackForDeleteSubtask = { (subtaskIndex) in
+            try! self.realm.write {
+                model.listOfSubtasks.remove(at: subtaskIndex)
+                self.tasksTable.reloadData()
             }
-            cell.callbackForEditingTask = { () in
-                let editVC: EditTaskViewController = EditTaskViewController.loadFromStoryboard()
-                editVC.taskToChange = self.tasks[indexPath.row]
-                self.navigationController?.pushViewController(editVC, animated: true)
-                editVC.compleationHandler = { [weak self] in
-                    self?.refresh()
-                }
+        }
+        cell.callbackForEditingTask = { () in
+            let editVC: EditTaskViewController = EditTaskViewController.loadFromStoryboard()
+            editVC.taskToChange = self.tasks[indexPath.row]
+            self.navigationController?.pushViewController(editVC, animated: true)
+            editVC.compleationHandler = { [weak self] in
+                self?.refresh()
             }
         }
         // swiftlint:enable force_try

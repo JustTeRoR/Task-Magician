@@ -25,7 +25,10 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
     private lazy var titleView = TitleView()
     var tasks = [Task]()
     var searchedTasks = [Task]()
+    var filteredTasks = [Task]()
+    var filterCriteria: [String?] =  [ nil, nil, nil ]
     var searching = false
+    var filtering = false
     // MARK: Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -73,12 +76,63 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     @IBAction func filterButtonClicked(_ sender: Any) {
-        print("filtering")
+        showFiltering()
+    }
+    
+    @objc func showFiltering() {
         let slideVC = FilterView()
         slideVC.modalPresentationStyle = .custom
         slideVC.transitioningDelegate = self
+        slideVC.activeFilterCriterias = filterCriteria
         self.present(slideVC, animated: true, completion: nil)
+        slideVC.filteringStart = { (activeFilterCriterias) in
+            self.filterCriteria = activeFilterCriterias
+            self.applySearchingCriteria(criteria: activeFilterCriterias)
+            self.tasksTable.reloadData()
     }
+        slideVC.filteringEnd = {
+            self.filtering = false
+            self.filterCriteria = [ nil, nil, nil ]
+            self.tasksTable.reloadData()
+        }
+    }
+    
+    func applySearchingCriteria(criteria: [String?]) {
+        filtering = true
+        filteredTasks = tasks
+        
+        if criteria[0] != nil {
+            filteredTasks = self.filteredTasks.filter({ task in
+                return task.status == criteria[0]
+            })
+        }
+        if criteria[1] != nil {
+            filteredTasks = self.filteredTasks.filter({ task in
+                return task.group == criteria[1]
+            })
+        }
+        if criteria[2] != nil {
+            filteredTasks = self.filteredTasks.filter({ task in
+                let components = Calendar.current.dateComponents([.second], from: Date(), to: task.deadline)
+                let spentSeconds = components.second!
+                if criteria[2] == "Истекшие" {
+                    return spentSeconds < 0
+                } else if criteria[2] == "До сегодня" {
+                    return Calendar.current.isDateInToday(task.deadline) && spentSeconds > 0
+                } else {
+                    return Calendar.current.isDateInTomorrow(task.deadline)
+                }
+            })
+        }
+        
+        if searching {
+            filteredTasks = filteredTasks.filter({ (task) in
+                return task.name.lowercased().contains(searchBar.text?.lowercased() ?? "")
+            })
+        }
+        tasksTable.reloadData()
+    }
+    
     func refresh() {
         tasks = realm.objects(Task.self).map({ $0 })
         tasksTable.reloadData()

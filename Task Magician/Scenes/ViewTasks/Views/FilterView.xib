@@ -10,17 +10,152 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterView" customModule="Task_Magician" customModuleProvider="target">
             <connections>
+                <outlet property="assignmentGroupBtn" destination="vau-xH-BCv" id="giD-k8-mud"/>
+                <outlet property="completedStatusBtn" destination="3sl-RD-cNt" id="EVY-bJ-7dW"/>
+                <outlet property="dateGroupLabel" destination="OeG-NH-hnz" id="Wmf-Xb-JeN"/>
+                <outlet property="filterTitleLabel" destination="hj8-zD-1cT" id="DhC-QX-LnD"/>
+                <outlet property="inProgressStatusBtn" destination="4tz-D6-wer" id="xgf-6L-ZnU"/>
+                <outlet property="onHoldStatusBtn" destination="KNd-KR-Owx" id="r00-Pc-FPa"/>
+                <outlet property="openStatusBtn" destination="zZf-uw-pdR" id="eJj-PR-NTH"/>
+                <outlet property="outdatedBtn" destination="acn-i0-1WQ" id="FB9-fb-1oC"/>
+                <outlet property="privateGroupBtn" destination="hLb-et-Fsj" id="qZn-qt-2mn"/>
+                <outlet property="resetAllFiltersButton" destination="16s-5k-L9D" id="ASq-hg-GsY"/>
+                <outlet property="shoppingGroupBtn" destination="BFF-Zj-2RU" id="ECD-5w-Or8"/>
+                <outlet property="slideIndicator" destination="i5M-Pr-FkT" id="sVy-gj-KIh"/>
+                <outlet property="statusGroupLabel" destination="8kD-LN-zpT" id="YkF-d9-8OI"/>
+                <outlet property="submitSelectedFiltersButton" destination="ZY9-4t-CpK" id="7GN-WT-YxP"/>
+                <outlet property="taskGroupLabel" destination="Svm-e1-qfd" id="gTf-ZN-uPf"/>
+                <outlet property="toTodayBtn" destination="MHD-M6-hhd" id="cTU-YX-beF"/>
+                <outlet property="toTomorrowBtn" destination="jz4-Jo-kck" id="0FF-0A-xTR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="workGroupBtn" destination="nKQ-4r-9Y1" id="UcS-hY-RWR"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hj8-zD-1cT">
+                    <rect key="frame" x="176.5" y="15" width="61.5" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="4tz-D6-wer" customClass="RadioButton" customModule="Task_Magician" customModuleProvider="target">
+                    <rect key="frame" x="219" y="76" width="175" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="zZf-uw-pdR" customClass="RadioButton" customModule="Task_Magician" customModuleProvider="target">
+                    <rect key="frame" x="20" y="77" width="175" height="50"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kD-LN-zpT">
+                    <rect key="frame" x="185" y="49" width="44.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="KNd-KR-Owx" customClass="RadioButton" customModule="Task_Magician" customModuleProvider="target">
+                    <rect key="frame" x="20" y="135" width="175" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="3sl-RD-cNt" customClass="RadioButton" customModule="Task_Magician" customModuleProvider="target">
+                    <rect key="frame" x="219" y="135" width="175" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svm-e1-qfd">
+                    <rect key="frame" x="185" y="195" width="44.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="nKQ-4r-9Y1" customClass="RadioButton" customModule="Task_Magician" customModuleProvider="target">
+                    <rect key="frame" x="219" y="223" width="175" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="hLb-et-Fsj" customClass="RadioButton" customModule="Task_Magician" customModuleProvider="target">
+                    <rect key="frame" x="20" y="224" width="175" height="50"/>
+                    <autoresizingMask key="autoresizingMask"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="BFF-Zj-2RU" customClass="RadioButton" customModule="Task_Magician" customModuleProvider="target">
+                    <rect key="frame" x="20" y="282" width="175" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="vau-xH-BCv" customClass="RadioButton" customModule="Task_Magician" customModuleProvider="target">
+                    <rect key="frame" x="219" y="282" width="175" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeG-NH-hnz">
+                    <rect key="frame" x="185" y="342" width="44.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="acn-i0-1WQ" customClass="RadioButton" customModule="Task_Magician" customModuleProvider="target">
+                    <rect key="frame" x="20" y="370" width="120" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="MHD-M6-hhd" customClass="RadioButton" customModule="Task_Magician" customModuleProvider="target">
+                    <rect key="frame" x="147" y="370" width="120" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="jz4-Jo-kck" customClass="RadioButton" customModule="Task_Magician" customModuleProvider="target">
+                    <rect key="frame" x="274" y="370" width="120" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="16s-5k-L9D">
+                    <rect key="frame" x="0.0" y="428" width="207" height="72"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="resetAllbtnClicked:" destination="-1" eventType="touchUpInside" id="Egn-aY-eLe"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yC4-ye-SGp">
+                    <rect key="frame" x="177" y="8" width="60" height="4"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="4" id="p71-n3-75C"/>
+                        <constraint firstAttribute="width" constant="60" id="z1Z-ab-K7X"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ZY9-4t-CpK">
+                    <rect key="frame" x="206" y="428" width="208" height="72"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="subitAllBtnClicked:" destination="-1" eventType="touchUpInside" id="JRy-gn-owm"/>
+                    </connections>
+                </button>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="yC4-ye-SGp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="0lE-GA-Ume"/>
+                <constraint firstItem="8kD-LN-zpT" firstAttribute="top" secondItem="hj8-zD-1cT" secondAttribute="bottom" constant="5" id="1Wg-ov-us6"/>
+                <constraint firstItem="Svm-e1-qfd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4gA-ge-axL"/>
+                <constraint firstItem="hj8-zD-1cT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="D8a-g0-Wkz"/>
+                <constraint firstItem="hj8-zD-1cT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="EFJ-PV-Eie"/>
+                <constraint firstItem="8kD-LN-zpT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IhW-d4-OEX"/>
+                <constraint firstItem="yC4-ye-SGp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="a2E-4j-eWk"/>
+                <constraint firstItem="OeG-NH-hnz" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aqh-9E-bQk"/>
+                <constraint firstItem="Svm-e1-qfd" firstAttribute="top" secondItem="KNd-KR-Owx" secondAttribute="bottom" constant="10" id="g6b-Ab-NxL"/>
+                <constraint firstItem="OeG-NH-hnz" firstAttribute="top" secondItem="BFF-Zj-2RU" secondAttribute="bottom" constant="10" id="pj5-pC-Ev0"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="112" y="88"/>
+            <point key="canvasLocation" x="111.59420289855073" y="87.723214285714278"/>
         </view>
     </objects>
     <resources>
