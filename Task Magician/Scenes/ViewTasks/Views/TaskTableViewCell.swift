@@ -66,6 +66,13 @@ class TaskTableViewCell: UITableViewCell {
         taskStatus.text = taskModel.status
         configureCommonStatusLabel(label: taskStatus, status: TaskStatus.init(rawValue: taskModel.status)!)
         configureCommonGroupLabel(label: taskGroup, group: TaskGroup.init(rawValue: taskModel.group)!)
+        let components = Calendar.current.dateComponents([.second], from: Date(), to: taskModel.deadline)
+        let spentSeconds = components.second!
+        if spentSeconds < 0 {
+            dateLabel.textColor = UIColor.systemRed
+        } else {
+            dateLabel.textColor = UIColor.systemGreen
+        }
         dateLabel.text = dateFormatter.string(from: taskModel.deadline)
         if taskModel.isCompleted {
             completeButton.setBackgroundImage(UIImage(systemName: "checkmark.seal.fill"), for: .normal)
