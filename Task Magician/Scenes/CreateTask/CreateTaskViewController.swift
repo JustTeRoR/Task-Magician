@@ -16,6 +16,7 @@ class CreateTaskViewController: UIViewController {
     @IBOutlet weak var subtasksTable: UITableView!
     @IBOutlet weak var subtaskInputText: UITextField!
     @IBOutlet weak var createSubtaskButton: UIButton!
+    @IBOutlet weak var importBtn: UIButton!
     // swiftlint:disable force_try
     var subtasksForNewTask = [Subtask]()
     var realm: Realm!
@@ -50,6 +51,10 @@ class CreateTaskViewController: UIViewController {
         subtasksTable.dataSource = self
         subtasksTable.delegate = self
         subtasksTable.register(UINib(nibName: "SubtaskTableViewCell", bundle: nil), forCellReuseIdentifier: "subtaskCell")
+    }
+    
+    @IBAction func importBtnClicked(_ sender: Any) {
+        
     }
     
     @IBAction func createNewSubtaskButtonClicked(_ sender: Any) {
