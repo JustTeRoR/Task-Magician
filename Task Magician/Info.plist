@@ -78,7 +78,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleIconFile</key>
-			<string>file-icon</string>
+			<string>file-icon.png</string>
 			<key>CFBundleTypeName</key>
 			<string>Task Document</string>
 			<key>LSHandlerRank</key>
@@ -104,7 +104,7 @@
 			<string>Task Document</string>
 			<key>UTTypeIconFiles</key>
 			<array>
-				<string>file-icon</string>
+				<string>file-icon.png</string>
 			</array>
 			<key>UTTypeIdentifier</key>
 			<string>com.justterror.Task.tmag</string>
