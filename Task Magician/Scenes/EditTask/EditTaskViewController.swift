@@ -20,6 +20,7 @@ class EditTaskViewController: UIViewController {
     @IBOutlet weak var createSubtaskButton: UIButton!
     // swiftlint:disable force_try
     public var taskToChange: Task!
+    var isImportingFromFile = false
     var realm: Realm!
     public var compleationHandler: (() -> Void)?
     // MARK: Object lifecycle
@@ -43,8 +44,6 @@ class EditTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        // swiftlint:disable force_cast
-        //tasksToChangeSubtasks = taskToChange.listOfSubtasks.detached()
         self.view.backgroundColor = UIColor.systemGroupedBackground
         navigationController?.navigationBar.tintColor = UIColor.black
         let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.btnUpdateTask))
@@ -60,7 +59,7 @@ class EditTaskViewController: UIViewController {
         
         let taskGroup = TaskGroup.init(rawValue: taskToChange.group)!
         let stateGroupIndex = TaskGroup.allCases.firstIndex(of: taskGroup)!
-        statePicker.selectRow(stateGroupIndex, inComponent: 0, animated: true)
+        groupPicker.selectRow(stateGroupIndex, inComponent: 0, animated: true)
         
         subtasksTable.dataSource = self
         subtasksTable.delegate = self
@@ -86,16 +85,23 @@ class EditTaskViewController: UIViewController {
             let taskGroup = TaskGroup.allCases[groupPicker.selectedRow(inComponent: 0)]
             let taskDescription = descriptionInputText.text ?? ""
             let taskStatus = TaskStatus.allCases[statePicker.selectedRow(inComponent: 0)]
-            try! self.realm.write {
-                taskToChange.name = text
-                taskToChange.taskDescription = taskDescription
-                taskToChange.group = taskGroup.rawValue
-                taskToChange.status = taskStatus.rawValue
-                taskToChange.deadline = date
-                if taskStatus.rawValue != TaskStatus.Completed.rawValue {
-                    taskToChange.isCompleted = false
-                } else {
-                    taskToChange.isCompleted = true
+            if isImportingFromFile == true {
+                applyValuesFromFields()
+                try! self.realm.write {
+                    self.realm.add(Task(value: taskToChange))
+                }
+            } else {
+                try! self.realm.write {
+                    taskToChange.name = text
+                    taskToChange.taskDescription = taskDescription
+                    taskToChange.group = taskGroup.rawValue
+                    taskToChange.status = taskStatus.rawValue
+                    taskToChange.deadline = date
+                    if taskStatus.rawValue != TaskStatus.Completed.rawValue {
+                        taskToChange.isCompleted = false
+                    } else {
+                        taskToChange.isCompleted = true
+                    }
                 }
             }
             // swiftlint:enable force_try
@@ -105,6 +111,25 @@ class EditTaskViewController: UIViewController {
         }
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func applyValuesFromFields() {
+        let text = titleInputText.text
+        let date = datePicker.date
+        let taskGroup = TaskGroup.allCases[groupPicker.selectedRow(inComponent: 0)]
+        let taskDescription = descriptionInputText.text ?? ""
+        let taskStatus = TaskStatus.allCases[statePicker.selectedRow(inComponent: 0)]
+        taskToChange.name = text!
+        taskToChange.taskDescription = taskDescription
+        taskToChange.group = taskGroup.rawValue
+        taskToChange.status = taskStatus.rawValue
+        taskToChange.deadline = date
+        if taskStatus.rawValue != TaskStatus.Completed.rawValue {
+            taskToChange.isCompleted = false
+        } else {
+            taskToChange.isCompleted = true
+        }
+    }
+    
     private func setUpPickerView() {
         groupPicker.delegate = self
         groupPicker.dataSource = self

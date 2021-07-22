@@ -35,8 +35,8 @@ class Subtask: EmbeddedObject, Codable {
     convenience required init(from decoder: Decoder) throws {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        let name = try values.decode(String.self, forKey: .name)
-        let isCompleted = try values.decode(Bool.self, forKey: .isCompleted)
-        let owner = try values.decode(String.self, forKey: .owner)
+        self.name = try values.decode(String.self, forKey: .name)
+        self.isCompleted = try values.decode(Bool.self, forKey: .isCompleted)
+        self.owner = try values.decode(String.self, forKey: .owner)
     }
 }

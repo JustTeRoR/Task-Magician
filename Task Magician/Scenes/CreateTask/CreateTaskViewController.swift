@@ -53,10 +53,6 @@ class CreateTaskViewController: UIViewController {
         subtasksTable.register(UINib(nibName: "SubtaskTableViewCell", bundle: nil), forCellReuseIdentifier: "subtaskCell")
     }
     
-    @IBAction func importBtnClicked(_ sender: Any) {
-        
-    }
-    
     @IBAction func createNewSubtaskButtonClicked(_ sender: Any) {
         if let text = subtaskInputText.text, !text.isEmpty {
             subtasksForNewTask.append(Subtask(name: text, owner: app.currentUser?.id))

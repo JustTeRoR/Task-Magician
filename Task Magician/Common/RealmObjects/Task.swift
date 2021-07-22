@@ -91,15 +91,15 @@ class Task: Object, Codable {
     convenience required init(from decoder: Decoder) throws {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        let name = try values.decode(String.self, forKey: .name)
-        let owner = try values.decode(String.self, forKey: .owner)
-        let status = try values.decode(String.self, forKey: .status)
-        let deadline = try values.decode(Date.self, forKey: .deadline)
-        let taskDescription = try values.decode(String.self, forKey: .taskDescription)
-        let group = try values.decode(String.self, forKey: .group)
-        let isCompleted = try values.decode(Bool.self, forKey: .isCompleted)
+        self.name = try values.decode(String.self, forKey: .name)
+        self.owner = try values.decode(String.self, forKey: .owner)
+        self.status = try values.decode(String.self, forKey: .status)
+        self.deadline = try values.decode(Date.self, forKey: .deadline)
+        self.taskDescription = try values.decode(String.self, forKey: .taskDescription)
+        self.group = try values.decode(String.self, forKey: .group)
+        self.isCompleted = try values.decode(Bool.self, forKey: .isCompleted)
         let subtaskArray = try values.decode([Subtask].self, forKey: .listOfSubtasks)
-        listOfSubtasks.append(objectsIn: subtaskArray)
+        self.listOfSubtasks.append(objectsIn: subtaskArray)
        
     }
 }

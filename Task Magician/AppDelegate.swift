@@ -43,9 +43,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthServiceDelegate {
         return true
     }
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        VKSdk.processOpen(url, fromApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
-        print("url: \(url)")
-        return true
+        if url.pathExtension == "tmag" {
+            let scope = ["wall", "friends"]
+            VKSdk.wakeUpSession(scope) { (state, _) in
+                if state == VKAuthorizationState.authorized {
+                    guard
+                        let navigationController = self.window?.rootViewController as? UINavigationController else {
+                        return
+                    }
+                    guard let newTask = Task.importData(from: url) else {
+                        return
+                    }
+                    let editVC: EditTaskViewController = EditTaskViewController.loadFromStoryboard()
+                    editVC.taskToChange = newTask
+                    editVC.isImportingFromFile = true
+                    navigationController.pushViewController(editVC, animated: true)
+                }
+            }
+            return true
+        } else {
+            VKSdk.processOpen(url, fromApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+            print("url: \(url)")
+            return true
+        }
     }
 
     private func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {

@@ -79,6 +79,10 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
         showFiltering()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        refresh()
+    }
+    
     @objc func showFiltering() {
         let slideVC = FilterView()
         slideVC.modalPresentationStyle = .custom
