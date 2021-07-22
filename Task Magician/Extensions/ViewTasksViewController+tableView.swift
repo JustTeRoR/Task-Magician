@@ -59,6 +59,17 @@ extension ViewTasksViewController {
                 self?.refresh()
             }
         }
+        cell.callbackForSharingTask = { () in
+            guard
+                let url = model.exportToURL()
+                else { return }
+            let activity = UIActivityViewController(
+               activityItems: ["Посмотри что я собираюсь сделать! Задача из приложения Task Magician.", url],
+               applicationActivities: nil
+             )
+            activity.popoverPresentationController?.sourceRect = self.view.frame
+            self.present(activity, animated: true, completion: nil)
+        }
         // swiftlint:enable force_try
         return cell
     }

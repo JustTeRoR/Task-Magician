@@ -39,14 +39,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthServiceDelegate {
         } else {
             self.authVC()
             }
+        }
+        return true
     }
-    return true
-}
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         VKSdk.processOpen(url, fromApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
         print("url: \(url)")
         return true
     }
+
     private func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         VKSdk.processOpen(url as URL?, fromApplication: sourceApplication)
         print("url: \(url)")

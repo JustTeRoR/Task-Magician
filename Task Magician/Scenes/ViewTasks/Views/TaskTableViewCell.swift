@@ -9,7 +9,6 @@ import UIKit
 import RealmSwift
 
 class TaskTableViewCell: UITableViewCell {
-    
     @IBOutlet weak var taskName: UILabel!
     @IBOutlet weak var taskDescription: UILabel!
     @IBOutlet weak var taskGroup: UILabel!
@@ -18,13 +17,14 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var subtaskTable: UITableView!
     @IBOutlet weak var editButton: UIButton!
-    
+    @IBOutlet weak var shareButton: UIButton!
     // TODO: try to get rid of realm here
     // swiftlint:disable force_try
     let realm = try! Realm(configuration: app.currentUser!.configuration(partitionValue: app.currentUser!.id))
     var callback: (() -> Void)?
     var callbackForDeleteSubtask: ((Int) -> Void)?
     var callbackForEditingTask: (() -> Void)?
+    var callbackForSharingTask: (() -> Void)?
     var containsSubTasks: Bool = false
     // TODO: maybe it's not good to store this here, but it's needed for initialization built in tableView
     var taskModel: Task!
@@ -57,6 +57,7 @@ class TaskTableViewCell: UITableViewCell {
         subtaskTable.layer.borderColor = UIColor.orange.cgColor
         subtaskTable.layer.cornerRadius = 10
         editButton.layer.cornerRadius = 10
+        shareButton.layer.cornerRadius = 10
         taskName.text = taskModel.name
         taskDescription.text = taskModel.taskDescription
         taskDescription.numberOfLines = 3
@@ -83,6 +84,10 @@ class TaskTableViewCell: UITableViewCell {
         }
     }
 
+    // swiftlint:disable force_cast
+    @IBAction func shareButtonClicked(_ sender: Any) {
+        callbackForSharingTask?()
+    }
     @IBAction func editButtonClicked(_ sender: Any) {
         callbackForEditingTask?()
     }
