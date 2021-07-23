@@ -92,10 +92,10 @@ class Task: Object, Codable {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try values.decode(String.self, forKey: .name)
-        self.owner = try values.decode(String.self, forKey: .owner)
+        self.owner = try? values.decode(String.self, forKey: .owner)
         self.status = try values.decode(String.self, forKey: .status)
         self.deadline = try values.decode(Date.self, forKey: .deadline)
-        self.taskDescription = try values.decode(String.self, forKey: .taskDescription)
+        self.taskDescription = try? values.decode(String.self, forKey: .taskDescription)
         self.group = try values.decode(String.self, forKey: .group)
         self.isCompleted = try values.decode(Bool.self, forKey: .isCompleted)
         let subtaskArray = try values.decode([Subtask].self, forKey: .listOfSubtasks)
@@ -142,4 +142,3 @@ extension Task {
         return task
     }
 }
-

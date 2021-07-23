@@ -64,7 +64,7 @@ class ViewTasksViewController: UIViewController, UITableViewDelegate, UITableVie
         tasksTable.dataSource = self
         tasksTable.delegate = self
         tasksTable.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "taskCell")
-        tasksTable.reloadData()
+        refresh()
     }
     
     @IBAction func addNewTask(_ sender: Any) {
